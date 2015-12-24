@@ -151,15 +151,6 @@ $input-text-disabled-color: $input-text-bottom-border-color !default;
 $input-text-disabled-text-color: $input-text-label-color !default;
 $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 
-/* ==========  Card  ========== */
-
-$card-background-color: unquote("rgb(#{$color-white})") !default;
-$card-text-color: unquote("rgb(#{$color-black})") !default;
-$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$card-supporting-text-text-color: unquote("rgba(#{$color-black}, 0.54)") !default;
-$card-border-color: rgba(0,0,0,0.1) !default;
-$card-subtitle-color: unquote("rgba(#{$color-black}, 0.54)") !default;
-
 /* ==========  Sliders ========== */
 
 $range-bg-color: unquote("rgba(#{$color-black}, 0.26)") !default;
@@ -335,38 +326,6 @@ $checkbox-padding: 8px !default;
 $checkbox-top-offset:
 ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
-
-/* CARD */
-
-/* Card dimensions */
-$card-width: 330px !default;
-$card-height: 200px !default;
-$card-font-size: 16px !default;
-$card-title-font-size: 24px !default;
-$card-subtitle-font-size: 14px !default;
-$card-horizontal-padding: 16px !default;
-$card-vertical-padding: 16px !default;
-
-$card-title-perspective-origin-x: 165px !default;
-$card-title-perspective-origin-y: 56px !default;
-
-$card-title-transform-origin-x: 165px !default;
-$card-title-transform-origin-y: 56px !default;
-
-$card-title-text-transform-origin-x: 149px !default;
-$card-title-text-transform-origin-y: 48px !default;
-
-$card-supporting-text-font-size: 1rem !default;
-$card-supporting-text-line-height: 18px !default;
-
-$card-actions-font-size: 16px !default;
-
-$card-title-text-font-weight: 300 !default;
-$card-z-index: 1 !default;
-
-/* Cover image */
-$card-cover-image-height: 186px !default;
-$card-background-image-url: '' !default;
 
 /* PROGRESS */
 $bar-height: 4px !default;
