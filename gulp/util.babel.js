@@ -1,14 +1,13 @@
 import pkg from '../package.json';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import * as config from './config';
+import * as config from './config.babel';
 import through from 'through2';
 
 const $ = gulpLoadPlugins();
 
 export function cssPipeline(stream) {
   return stream
-   // Generate Source Maps
    .pipe($.sourcemaps.init())
    .pipe($.sass({
      precision: 10,

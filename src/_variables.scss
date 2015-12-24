@@ -36,7 +36,6 @@
  * -----Button
  * -----Animation
  * -----Progress
- * -----Badge
  * -----Shadows
  * -----Grid
  * -----Data table
@@ -49,20 +48,6 @@
  */
 
 
-/* ==========  TYPOGRAPHY  ========== */
-
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  COLORS  ========== */
 
@@ -78,52 +63,6 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  IMAGES  ========== */
 $image_path: '/images' !default;
-
-/* ==========  Color & Themes  ========== */
-
-// Define whether individual color palette items should have classes created.
-// Setting this to true will remove individual color classes for each color in the palettes.
-// To improve overall performance (assuming they aren't used) by:
-// * Saving server bandwidth sending the extra classes
-// * Save client computation against the classes
-// it is RECOMMENDED you set this to true.
-$trim-color-classes: false !default;
-
-// Use color primarily for emphasis. Choose colors that fit with
-// your brand and provide good contrast between visual components.
-$color-primary: $palette-indigo-500 !default;
-$color-primary-dark: $palette-indigo-700 !default;
-$color-accent: $palette-pink-A200 !default;
-
-// Our primary is dark, so use $color-dark-contrast for overlaid text.
-$color-primary-contrast: $color-dark-contrast !default;
-// Our accent is dark, so use $color-dark-contrast for overlaid text.
-$color-accent-contrast: $color-dark-contrast !default;
-
-// Replace all colors with placeholders if we're generating a template.
-@if $styleguide-generate-template == true {
-  $color-primary: '$color-primary';
-  $color-primary-dark: '$color-primary-dark';
-  $color-accent: '$color-accent';
-  $color-primary-contrast: '$color-primary-contrast';
-  $color-accent-contrast: '$color-accent-contrast';
-}
-
-/* ==========  Typography  ========== */
-
-// We use the following default color styles: text-color-primary and
-// text-color-secondary. For light themes, use text-color-primary-inverse
-// and text-color-secondary-inverse.
-
-$text-color-primary: unquote("rgba(#{$color-black}, 0.87)") !default;
-$text-link-color: unquote("rgb(#{$color-accent})") !default;
-
-// Define whether to target elements directly for typographic enhancements.
-// Turning this off means you need to use mdl-* classes more often.
-// Other components may also fail to adhere to MD without these rules.
-// It is strongly recommended you leave this as true.
-
-$target-elements-directly: true !default;
 
 /* ==========  Components  ========== */
 
@@ -483,33 +422,8 @@ $button-fab-font-size: 24px !default;
 $button-icon-size: 32px !default;
 $button-icon-size-mini: 24px !default;
 
-
-/* ANIMATION */
-$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
-$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
-$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
-
-$animation-curve-default: $animation-curve-fast-out-slow-in !default;
-
-
 /* PROGRESS */
 $bar-height: 4px !default;
-
-/* BADGE */
-$badge-font-size: 12px !default;
-$badge-color: unquote("rgb(#{$color-accent-contrast})") !default;
-$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
-$badge-background: unquote("rgb(#{$color-accent})") !default;
-$badge-background-inverse: unquote("rgba(#{$color-accent-contrast},0.2)") !default;
-$badge-size : 22px !default;
-$badge-padding: 2px !default;
-$badge-overlap: 12px !default;
-
-/* SHADOWS */
-
-$shadow-key-umbra-opacity: 0.2 !default;
-$shadow-key-penumbra-opacity: 0.14 !default;
-$shadow-ambient-shadow-opacity: 0.12 !default;
 
 /* GRID */
 

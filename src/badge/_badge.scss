@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-@import "../variables";
+$badge-size : 1.571rem !default;
+$badge-padding: 0.1429rem !default;
+$badge-overlap: 0.8571rem !default;
 
 .mdl-badge {
   position : relative;
@@ -27,39 +29,34 @@
 
   &[data-badge]:after {
     content: attr(data-badge);
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
-
     position: absolute;
     top: -($badge-size / 2);
     right: -($badge-size + $badge-padding);
+    font-family: $preferred_font;
+    font-weight: 600;
+    font-size: 0.8571rem;
+    width: $badge-size;
+    height: $badge-size;
+    border-radius : 50%;
+    background: $color-accent;
+    color: $color-accent-contrast;
 
     .mdl-button & {
       top: -10px;
       right: -5px;
     }
-
-    font-family: $preferred_font;
-    font-weight: 600;
-    font-size: $badge-font-size;
-    width: $badge-size;
-    height: $badge-size;
-    border-radius : 50%;
-
-    background: $badge-background;
-    color: $badge-color;
   }
 
   &.mdl-badge--no-background {
     &[data-badge]:after {
-      color: $badge-color-inverse;
-      background: $badge-background-inverse;
-
+      color: $color-accent;
+      background: $color-accent-contrast;
       box-shadow: 0 0 1px gray;
     }
   }

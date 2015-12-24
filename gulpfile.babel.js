@@ -17,12 +17,10 @@
  *
  */
 
- // jscs:disable jsDoc
-
 'use strict';
 
 import gulp from 'gulp';
-import * as tasks from './gulp/tasks';
+import * as tasks from './gulp/tasks.babel';
 
 import browserSync from 'browser-sync';
 const reload = browserSync.reload;
@@ -37,15 +35,13 @@ gulp.task('scripts', gulp.parallel(
 ));
 
 gulp.task('test', gulp.series(
-  gulp.parallel('scripts'),
-  tasks.mocha
+  gulp.parallel('scripts')
 ));
 
-gulp.task('closure', gulp.series(tasks.mdlClosureJs, tasks.mochaClosure));
+gulp.task('closure', gulp.series(tasks.mdlClosureJs));
 
 gulp.task('default', gulp.series(
-  gulp.parallel('styles', 'scripts', tasks.images, tasks.metadata),
-  gulp.parallel(tasks.mocha)
+  gulp.parallel('styles', 'scripts', tasks.images, tasks.metadata)
 ));
 
 gulp.task('serve', () => {
@@ -61,4 +57,3 @@ gulp.task('serve', () => {
   gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series(tasks.images, reload));
   gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series(tasks.metadata));
 });
-
