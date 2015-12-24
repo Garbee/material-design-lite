@@ -1,7 +1,7 @@
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License;
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -14,8 +14,47 @@
  * limitations under the License.
  */
 
-@import "../variables";
-@import "../mixins";
+// Default button colors.
+$button-primary-color: rgba($palette-grey-500, 0.20) !default;
+$button-secondary-color: $color-black !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($palette-grey-500, 0.40) !default;
+$button-focus-color: rgba($color-black, 0.12) !default;
+
+// Colored button colors.
+$button-primary-color-alt: $color-primary !default;
+$button-secondary-color-alt: $color-primary-contrast !default;
+$button-hover-color-alt: $color-primary !default;
+$button-active-color-alt: $color-primary !default;
+$button-focus-color-alt: $button-focus-color !default;
+
+
+// Disabled button colors.
+$button-primary-color-disabled: rgba($color-black, 0.12) !default;
+$button-secondary-color-disabled: rgba($color-black, 0.26) !default;
+
+// FAB colors and sizes.
+$button-fab-color-alt: $color-accent !default;
+$button-fab-hover-color-alt: $color-accent !default;
+$button-fab-active-color-alt: $color-accent !default;
+$button-fab-text-color-alt: $color-accent-contrast !default;
+
+// Icon button colors and sizes.
+$button-icon-color: $palette-grey-700 !default;
+$button-icon-focus-color: $button-focus-color !default;
+
+$button-min-width: 4.571rem !default;
+$button-height: 2.571rem !default;
+$button-padding: 1.143rem !default;
+$button-margin: 0.2857rem !default;
+$button-border-radius: 0.1429rem !default;
+
+$button-fab-size: 4rem !default;
+$button-fab-size-mini: 2.857rem !default;
+$button-fab-font-size: 1.714rem !default;
+
+$button-icon-size: 2.286rem !default;
+$button-icon-size-mini: 1.714rem !default;
 
 // The button component. Defaults to a flat button.
 .mdl-button {
@@ -28,7 +67,11 @@
   min-width: $button-min-width;
   padding: 0 $button-padding;
   display: inline-block;
-  @include typo-button();
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: $button-height;
+  letter-spacing: 0;
   overflow: hidden;
   will-change: box-shadow, transform;
   transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
@@ -38,7 +81,6 @@
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  line-height: $button-height;
   vertical-align: middle;
 
   &::-moz-focus-inner {
@@ -100,10 +142,6 @@ input.mdl-button[type="submit"] {
       &:focus:not(:active) {
         background-color: $button-active-color-alt;
       }
-
-      & .mdl-ripple {
-        background: $button-ripple-color-alt;
-      }
     }
   }
 
@@ -138,12 +176,6 @@ input.mdl-button[type="submit"] {
       width: $button-fab-size-mini;
     }
 
-    & .mdl-button__ripple-container {
-      border-radius: 50%;
-      // Fixes clipping bug in Safari.
-      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-    }
-
     &:active {
       @include shadow-4dp();
       background-color: $button-active-color;
@@ -168,10 +200,6 @@ input.mdl-button[type="submit"] {
 
       &:active {
         background-color: $button-fab-active-color-alt;
-      }
-
-      & .mdl-ripple {
-        background: $button-fab-ripple-color-alt;
       }
     }
   }
@@ -210,39 +238,12 @@ input.mdl-button[type="submit"] {
         left: ($button-icon-size-mini - $button-fab-font-size) / 2;
       }
     }
-
-    & .mdl-button__ripple-container {
-      border-radius: 50%;
-      // Fixes clipping bug in Safari.
-      -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-    }
-  }
-
-
-  // Ripples
-  .mdl-button__ripple-container {
-    display: block;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    z-index: 0;
-    overflow: hidden;
-
-    .mdl-button[disabled] & .mdl-ripple,
-    .mdl-button.mdl-button--disabled & .mdl-ripple {
-      background-color: transparent;
-    }
   }
 
 // Colorized buttons
 
 .mdl-button--primary.mdl-button--primary {
   color: $button-primary-color-alt;
-  & .mdl-ripple {
-    background: $button-secondary-color-alt;
-  }
   &.mdl-button--raised, &.mdl-button--fab {
     color: $button-secondary-color-alt;
     background-color: $button-primary-color-alt;
@@ -251,9 +252,6 @@ input.mdl-button[type="submit"] {
 
 .mdl-button--accent.mdl-button--accent {
   color: $button-fab-color-alt;
-  & .mdl-ripple {
-    background: $button-fab-text-color-alt;
-  }
   &.mdl-button--raised, &.mdl-button--fab {
     color: $button-fab-text-color-alt;
     background-color: $button-fab-color-alt;

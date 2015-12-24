@@ -232,14 +232,6 @@
   @include typo-menu($colorContrast: true);
 }
 
-.mdl-typography--button {
-  @include typo-button;
-}
-
-.mdl-typography--button-color-contrast {
-  @include typo-button($colorContrast: true);
-}
-
 .mdl-typography--text-left {
   text-align: left;
 }
