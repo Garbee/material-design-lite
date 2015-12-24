@@ -22,10 +22,6 @@ export const AUTOPREFIXER_BROWSERS = [
 ];
 
 export const SOURCES = [
-  // Component handler
-  'src/mdlComponentHandler.js',
-  // Polyfills/dependencies
-  'src/third_party/**/*.js',
   // Base components
   'src/button/button.js',
   'src/checkbox/checkbox.js',

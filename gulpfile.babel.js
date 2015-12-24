@@ -71,10 +71,9 @@ gulp.task('release', gulp.series(
   'default',
   tasks.prepareRelease,
   tasks.publishRelease,
-  (cb) => {
+  () => {
     if(process.env.PUSH === 'true') {
-      del('release');
+      return del('release');
     }
-    cb();
   }
   ));
