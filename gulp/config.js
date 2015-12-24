@@ -23,22 +23,22 @@ export const AUTOPREFIXER_BROWSERS = [
 
 export const SOURCES = [
   // Base components
-  'src/button/button.js',
-  'src/checkbox/checkbox.js',
-  'src/icon-toggle/icon-toggle.js',
-  'src/menu/menu.js',
-  'src/progress/progress.js',
-  'src/radio/radio.js',
-  'src/slider/slider.js',
-  'src/snackbar/snackbar.js',
-  'src/spinner/spinner.js',
-  'src/switch/switch.js',
-  'src/tabs/tabs.js',
-  'src/textfield/textfield.js',
-  'src/tooltip/tooltip.js',
+  //'src/button/button.babel.js',
+  //'src/checkbox/checkbox.babel.js',
+  //'src/icon-toggle/icon-toggle.babel.js',
+  //'src/menu/menu.babel.js',
+  //'src/progress/progress.babel.js',
+  //'src/radio/radio.babel.js',
+  //'src/slider/slider.babel.js',
+  //'src/snackbar/snackbar.babel.js',
+  //'src/spinner/spinner.babel.js',
+  //'src/switch/switch.babel.js',
+  //'src/tabs/tabs.babel.js',
+  //'src/textfield/textfield.babel.js',
+  //'src/tooltip/tooltip.babel.js',
   // Complex components (which reuse base components)
-  'src/layout/layout.js',
-  'src/data-table/data-table.js',
+  //'src/layout/layout.babel.js',
+  //'src/data-table/data-table.js',
   // And finally, the ripples
-  'src/ripple/ripple.js'
+  //'src/ripple/ripple.babel.js'
 ];
