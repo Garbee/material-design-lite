@@ -1,0 +1,94 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License;
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.mdl-drawer {
+  width: 17.14rem;
+  transform: translateX(-17.86rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $palette-grey-50;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-property: transform;
+  z-index: 5;
+  color: $color-black;
+  display: flex;
+  @include shadow-2dp();
+  box-sizing: border-box;
+  border-right: 0.07143rem solid $palette-grey-300;
+
+  span.mdl-drawer__divider {
+    width: 100%;
+    margin: {
+      top: 0.2857rem;
+      bottom: 0.2857rem;
+    }
+    background-color: rgba($palette-grey-300, 0.54);
+    height: 0.07143rem;
+  }
+
+  &__content {
+    padding: {
+      left: 1.143rem;
+      right: 1.143rem;
+    }
+    @media(min-width: 760px) {
+      padding: {
+        left: 1.714rem;
+        right: 1.714rem;
+      }
+    }
+  }
+
+  &--visible {
+    transform: translateX(0);
+    & + .mdl-drawer__backdrop.mdl-drawer__backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media(min-width: 768px) {
+    transform: translateX(0);
+  }
+
+  & + &__backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    @media (min-width: 768px) {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  }
+}
