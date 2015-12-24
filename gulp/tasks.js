@@ -5,7 +5,6 @@ const $ = gulpLoadPlugins();
 import * as config from './config';
 import * as util from './util';
 import MaterialCustomizer from '../utils/customizer.js';
-import uniffe from '../utils/uniffe.js';
 import del from 'del';
 import path from 'path';
 import fs from 'fs';

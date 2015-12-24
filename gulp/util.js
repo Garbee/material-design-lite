@@ -17,11 +17,6 @@ export function cssPipeline(stream) {
    .pipe($.cssInlineImages({webRoot: 'src'}))
    .pipe($.autoprefixer(config.AUTOPREFIXER_BROWSERS))
    .pipe($.header(config.BANNER, {pkg}))
-   .pipe(gulp.dest('dist'))
-   // Minify Styles
-   .pipe($.if('*.css', $.csso()))
-   .pipe($.rename({extname: '.min.css'}))
-   .pipe($.header(config.BANNER, {pkg}))
    .pipe($.sourcemaps.write('.'))
    .pipe(gulp.dest('dist'));
 }

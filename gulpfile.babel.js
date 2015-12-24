@@ -28,9 +28,7 @@ import browserSync from 'browser-sync';
 const reload = browserSync.reload;
 
 gulp.task('styles', gulp.parallel(
-  tasks.mdlCss,
-  gulp.series(tasks.mdlThemeTemplate, tasks.mdlThemes),
-  tasks.mdlGrid
+  tasks.mdlCss
 ));
 
 gulp.task('scripts', gulp.parallel(
@@ -39,7 +37,7 @@ gulp.task('scripts', gulp.parallel(
 ));
 
 gulp.task('test', gulp.series(
-  gulp.parallel('styles', 'scripts'),
+  gulp.parallel('scripts'),
   tasks.mocha
 ));
 
@@ -47,10 +45,7 @@ gulp.task('closure', gulp.series(tasks.mdlClosureJs, tasks.mochaClosure));
 
 gulp.task('default', gulp.series(
   gulp.parallel('styles', 'scripts', tasks.images, tasks.metadata),
-  gulp.parallel(
-    tasks.mdlZip,
-    tasks.mocha
-  )
+  gulp.parallel(tasks.mocha)
 ));
 
 gulp.task('serve', () => {
@@ -67,13 +62,3 @@ gulp.task('serve', () => {
   gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series(tasks.metadata));
 });
 
-gulp.task('release', gulp.series(
-  'default',
-  tasks.prepareRelease,
-  tasks.publishRelease,
-  () => {
-    if(process.env.PUSH === 'true') {
-      return del('release');
-    }
-  }
-  ));
