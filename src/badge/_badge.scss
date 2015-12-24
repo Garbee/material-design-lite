@@ -53,14 +53,15 @@ $badge-overlap: 0.8571rem !default;
     }
   }
 
-  &.mdl-badge--no-background {
+  &--no-background {
     &[data-badge]:after {
       color: $color-accent;
       background: $color-accent-contrast;
       box-shadow: 0 0 1px gray;
     }
   }
-  &.mdl-badge--overlap {
+
+  &--overlap {
     margin-right: ($badge-size - $badge-overlap);
     &:after {
       right: -($badge-size - $badge-overlap);
