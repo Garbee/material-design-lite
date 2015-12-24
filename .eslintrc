@@ -1,0 +1,12 @@
+{
+  "extends": "google",
+  "globals": {
+    "window": false,
+    "document": false
+  },
+  "rules": {
+    "dot-notation": 0,
+    "no-inline-comments": 0,
+    "no-warning-comments": 0
+  }
+}
