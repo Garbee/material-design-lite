@@ -117,6 +117,15 @@
   &--fixed {
     @media(min-width: 768px) {
       transform: translateX(0);
+
+      & + .mdl-drawer__backdrop {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      &.mdl-drawer--clipped {
+        margin-top: 4rem;
+      }
     }
   }
 
@@ -132,12 +141,5 @@
     z-index: 3;
     opacity: 0;
     pointer-events: none;
-
-    &--fixed {
-      @media (min-width: 768px) {
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-    }
   }
 }

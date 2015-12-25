@@ -19,6 +19,7 @@
 | Class | Effect | Remarks |
 |-----------|--------|---------|
 | `mdl-drawer--fixed` | Modifies the drawer to always display on desktop systems. | Optional on root drawer element. |
+| `mdl-drawer--clipped` | Modifies the drawer to move beneath the navigation bar. | Optional on root drawer element. |
 | `mdl-drawer--visible` | Modifies the drawer to be visible if it is not fixed. | Toggled by JavaScript. |
 | `mdl-drawer__navigation-item--active` | Modifies the navigation item's background and color to call it out from the others. | Required on active navigation elements. |
 
