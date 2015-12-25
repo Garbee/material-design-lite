@@ -76,6 +76,7 @@
     }
     padding: 0;
 
+    // TODO Figure out how icons look inside of this. Update as-needed so they look good.
     &-item {
       @extend .mdl-drawer__content;
       font-weight: 600;
