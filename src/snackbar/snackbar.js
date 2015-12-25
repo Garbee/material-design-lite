@@ -24,17 +24,24 @@ class MaterialSnackbar {
       ACTION: 'mdl-snackbar__action',
       ACTIVE: 'mdl-snackbar--active'
     };
-    this.containerElement_ = this.element_.querySelector('.' + this.cssClasses_.CONAINER);
-    this.textElement_ = this.containerElement_.querySelector('.' + this.cssClasses_.MESSAGE);
-    this.actionElement_ = this.containerElement_.querySelector('.' + this.cssClasses_.ACTION);
+    this.containerElement_ =
+      this.element_.querySelector('.' + this.cssClasses_.CONAINER);
+    this.textElement_ =
+      this.containerElement_.querySelector('.' + this.cssClasses_.MESSAGE);
+    this.actionElement_ =
+      this.containerElement_.querySelector('.' + this.cssClasses_.ACTION);
     if (!this.containerElement_) {
       throw new Error('There must be a container element within the snackbar.');
     }
     if (!this.textElement_) {
-      throw new Error('There must be a message element in the snackbar container.');
+      throw new Error(
+        'There must be a message element in the snackbar container.'
+      );
     }
     if (!this.actionElement_) {
-      throw new Error('There must be an action element in the snackbar container.');
+      throw new Error(
+        'There must be an action element in the snackbar container.'
+      );
     }
     this.active = false;
     this.actionHandler_ = undefined;
@@ -50,8 +57,6 @@ class MaterialSnackbar {
    * @private
    */
   displaySnackbar_() {
-    this.element_.setAttribute('aria-hidden', 'true');
-
     if (this.actionHandler_) {
       this.actionElement_.textContent = this.actionText_;
       this.actionElement_.addEventListener('click', this.actionHandler_);
@@ -60,7 +65,7 @@ class MaterialSnackbar {
 
     this.textElement_.textContent = this.message_;
     this.element_.classList.add(this.cssClasses_.ACTIVE);
-    this.element_.setAttribute('aria-hidden', 'false');
+    this.element_.removeAttribute('aria-hidden');
     setTimeout(this.cleanup_.bind(this), this.timeout_);
   }
 
@@ -122,7 +127,9 @@ class MaterialSnackbar {
     this.element_.classList.remove(this.cssClasses_.ACTIVE);
     this.element_.setAttribute('aria-hidden', 'true');
     this.textElement_.textContent = '';
-    if (Boolean(this.actionElement_.getAttribute('aria-hidden'))) {
+    // Hard check against undefined since
+    // simply checking for existence failed.
+    if (this.actionHandler_ !== undefined) {
       this.setActionHidden_(true);
       this.actionElement_.textContent = '';
       this.actionElement_.removeEventListener('click', this.actionHandler_);
@@ -137,7 +144,7 @@ class MaterialSnackbar {
   /**
    * Set the action handler hidden state.
    *
-   * @param {boolean} value
+   * @param {boolean} value Whether to hide the value or not.
    * @private
    */
   setActionHidden_(value) {
