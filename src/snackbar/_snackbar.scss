@@ -14,62 +14,78 @@
  * limitations under the License.
  */
 
-@import "../variables";
-
 .mdl-snackbar {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  margin-right: -50%;
-  cursor: default;
-  background-color: $snackbar-background-color;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  align-items: center;
+  box-sizing: border-box;
+  will-change: opacity;
   z-index: 10000;
-  max-height: 0;
-  border-radius: 2px;
-  display: flex;
-  font-family: $preferred_font;
-  will-change: transform;
-  transform: translate3d(0,-50px,0) rotateZ(0deg);
-  @media(max-width: $snackbar-tablet-breakpoint - 1) {
+  cursor: default;
+  left: 0;
+
+  &__container {
+    background-color: #323232;
     width: 100%;
-    left:0;
-    min-height: 48px;
-    max-height: 80px;
-  }
-  @media(min-width: $snackbar-tablet-breakpoint) {
-    min-width: 288px;
-    max-width: 568px;
-  }
-  &.is-active {
-    max-height: 48px;
-    transform: translate3d(0, 0, 0);
-  }
-}
+    min-height: 3.429rem;
+    max-height: 5.714rem;
+    border-radius: 0.1429rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-.mdl-snackbar__text {
-  padding: 14px 24px;
-  vertical-align: middle;
-  color: white;
-}
+    @media(min-width: 768px) {
+      min-width: 20.57rem;
+      max-width: 40.57rem;
+    }
 
-.mdl-snackbar__action {
-  background: transparent;
-  border: none;
-  color: $snackbar-action-color;
-  text-transform: uppercase;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0;
-  overflow: hidden;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
+    .mdl-snackbar__text {
+      font-family: $preferred_font;
+      font-size: 1rem;
+      padding: 1rem 1.714rem;
+      vertical-align: middle;
+      color: $color-white;
+    }
 
-  &::-moz-focus-inner {
-    border: 0;
+    .mdl-snackbar__action {
+      background: transparent;
+      border: none;
+      color: $color-accent;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0;
+      overflow: hidden;
+      outline: none;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      vertical-align: middle;
+      opacity: 1;
+      pointer-events: auto;
+
+      &::-moz-focus-inner {
+        border: 0;
+      }
+
+      &[aria-hidden] {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
