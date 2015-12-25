@@ -313,38 +313,6 @@
       }
     }
 
-  // Obfuscator.
-  .mdl-layout__obfuscator {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 4;
-    visibility: hidden;
-    transition-property: background-color;
-    @include material-animation-default();
-
-    &.is-visible {
-      background-color: rgba(0, 0, 0, 0.5);
-      visibility: visible;
-    }
-
-    @supports (pointer-events: auto) {
-      background-color: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transition-property: opacity;
-      visibility: visible;
-      pointer-events: none;
-      &.is-visible {
-        pointer-events: auto;
-        opacity: 1;
-      }
-    }
-  }
-
-
   // Content.
   .mdl-layout__content {
     // Fix IE10 bug.
