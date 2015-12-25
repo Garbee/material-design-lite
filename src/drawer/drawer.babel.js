@@ -42,7 +42,7 @@ class MaterialDrawer {
   }
 
   /**
-   * Show the drawer.
+   * Attempt to show the drawer if it is currently not visible.
    * @public
    */
   show() {
@@ -50,7 +50,7 @@ class MaterialDrawer {
   }
 
   /**
-   * Hide the drawer.
+   * Attempt to hide the drawer if it is currently visible.
    * @public
    */
   hide() {
@@ -58,7 +58,7 @@ class MaterialDrawer {
   }
 
   /**
-   * Toggle the drawer state.
+   * Reverse the drawer's current state.
    * @public
    */
   toggle() {
