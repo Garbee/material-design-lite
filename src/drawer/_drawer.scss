@@ -30,7 +30,7 @@
   will-change: transform;
   transform-style: preserve-3d;
   transition-duration: .2s;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-property: transform;
   z-index: 5;
   color: $color-black;
@@ -47,6 +47,7 @@
     }
     background-color: rgba($palette-grey-300, 0.54);
     height: 0.07143rem;
+    flex-shrink: 0;
   }
 
   &__content {
@@ -62,6 +63,49 @@
     }
   }
 
+  &__navigation {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: {
+      top: 0.5714rem;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    padding: 0;
+
+    &-item {
+      @extend .mdl-drawer__content;
+      font-weight: 600;
+      font-size: 1rem;
+      color: rgba($color-black, 0.87);
+      height: 3.429rem;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      flex-shrink: 0;
+
+      & a {
+        @extend .mdl-drawer__navigation-item;
+        padding: {
+          left: 0;
+        }
+      }
+
+      &--active.mdl-drawer__navigation-item--active {
+        color: $color-primary;
+        background-color: $palette-grey-400;
+
+        & a {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
   &--visible {
     transform: translateX(0);
     & + .mdl-drawer__backdrop.mdl-drawer__backdrop {
@@ -70,8 +114,10 @@
     }
   }
 
-  @media(min-width: 768px) {
-    transform: translateX(0);
+  &--fixed {
+    @media(min-width: 768px) {
+      transform: translateX(0);
+    }
   }
 
   & + &__backdrop {
@@ -82,13 +128,16 @@
     right: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba($color-black, 0.5);
     z-index: 3;
     opacity: 0;
     pointer-events: none;
-    @media (min-width: 768px) {
-      opacity: 0 !important;
-      pointer-events: none !important;
+
+    &--fixed {
+      @media (min-width: 768px) {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
     }
   }
 }
