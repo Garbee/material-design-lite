@@ -21,7 +21,6 @@ export function jslint() {
 export function images() {
   return gulp.src('src/**/*.{svg,png,jpg}')
     .pipe($.flatten())
-    .pipe($.cache())
     .pipe(gulp.dest('dist/images'));
 }
 
