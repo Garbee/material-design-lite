@@ -37,11 +37,11 @@ $color-primary-contrast: $color-dark-contrast !default;
 $color-accent-contrast: $color-dark-contrast !default;
 
 // Define whether individual color palette items should have classes created.
-// Setting this to true will remove individual color classes for each color in the palettes.
+// Setting this to false will create individual color classes for each color in the palettes.
 // To improve overall performance (assuming they aren't used) by:
 // * Saving server bandwidth sending the extra classes
 // * Save client computation against the classes
-// it is RECOMMENDED you set this to true.
+// it is RECOMMENDED you keep this at true.
 $trim-color-classes: true !default;
 
 /* ==========  TYPOGRAPHY  ========== */
