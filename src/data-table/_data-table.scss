@@ -14,8 +14,31 @@
  * limitations under the License.
  */
 
-@import "../variables";
-@import "../mixins";
+$data-table-font-size: 0.9286rem;
+$data-table-header-font-size: 0.8571rem;
+$data-table-header-sort-icon-size: 1.143rem;
+
+$data-table-header-color: rgba($color-black, 0.54);
+$data-table-header-sorted-color: rgba($color-black, 0.87);
+$data-table-divider-color: rgba($color-black, 0.12);
+
+$data-table-hover-color: $palette-grey-200;
+$data-table-selection-color: $palette-grey-100;
+
+$data-table-dividers: 0.07143rem solid $data-table-divider-color;
+
+$data-table-row-height: 3.429rem;
+$data-table-last-row-height: 4rem;
+$data-table-header-height: 4rem;
+
+$data-table-column-spacing: 2.571rem;
+$data-table-column-padding: $data-table-column-spacing / 2;
+
+$data-table-card-header-height: 4.571rem;
+$data-table-card-title-top: 1.429rem;
+$data-table-card-padding: 1.714rem;
+$data-table-button-padding-right: 1.143rem;
+$data-table-cell-top: $data-table-card-padding / 2;
 
 .mdl-data-table {
   position: relative;
@@ -23,10 +46,15 @@
   border-collapse: collapse;
   white-space: nowrap;
   font-size: $data-table-font-size;
-  background-color: unquote("rgb(#{$color-white})");
+  background-color: $color-white;
+  font-family: $performance_font;
 
   thead {
-    padding-bottom: 3px;
+    padding-bottom: 0.2143rem;
+
+    tr {
+      height: 4rem;
+    }
 
     .mdl-data-table__select {
       margin-top: 0;
@@ -55,11 +83,11 @@
     text-align: right;
 
     &:first-of-type {
-      padding-left: 24px;
+      padding-left: 1.714rem;
     }
 
     &:last-of-type {
-      padding-right: 24px;
+      padding-right: 1.714rem;
     }
   }
 
@@ -67,15 +95,17 @@
     position: relative;
     vertical-align: top;
     height: $data-table-row-height;
-    border-top: $data-table-dividers;
-    border-bottom: $data-table-dividers;
+    border: {
+      top: $data-table-dividers;
+      bottom: $data-table-dividers;
+    }
     padding-top: $data-table-cell-top;
     box-sizing: border-box;
 
     .mdl-data-table__select {
       vertical-align: top;
       position: absolute;
-      left: 24px;
+      left: 1.714rem;
     }
   }
 
@@ -87,15 +117,15 @@
     height: $data-table-row-height;
     font-size: $data-table-header-font-size;
     color: $data-table-header-color;
-    padding-bottom: 8px;
+    padding-bottom: 0.5714rem;
     box-sizing: border-box;
 
     .mdl-data-table__select {
       position: absolute;
-      bottom: 8px;
-      left: 24px;
+      bottom: 0.5714rem;
+      left: 1.714rem;
     }
-    
+
     .mdl-data-table__header--sorted-ascending, .mdl-data-table__header--sorted-descending {
       color: $data-table-header-sorted-color;
       &:before {
@@ -103,11 +133,11 @@
         @include typo-icon;
       }
     }
-    
+
     .mdl-data-table__header--sorted-ascending:before {
       content: "\e5d8";
     }
-    
+
     .mdl-data-table__header--sorted-descending:before {
       content: "\e5db";
     }
@@ -115,7 +145,7 @@
 }
 
 .mdl-data-table__select {
-  width: 16px;
+  width: 1.143rem;
 }
 
 .mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {

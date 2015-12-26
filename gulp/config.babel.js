@@ -36,9 +36,6 @@ export const SOURCES = [
   //'src/tabs/tabs.babel.js',
   //'src/textfield/textfield.babel.js',
   //'src/tooltip/tooltip.babel.js',
-  // Complex components (which reuse base components)
-  //'src/layout/layout.babel.js',
-  //'src/data-table/data-table.js',
   // And finally, the ripples
   //'src/ripple/ripple.babel.js'
 ];
