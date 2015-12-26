@@ -237,8 +237,8 @@ $grid-max-columns: $grid-desktop-columns;
   }
 }
 
-@media (max-width: $mdl-desktop-breakpoint - 1) {
-  .mdl-cell--hide-tablet-down {
+@media (min-width: $mdl-tablet-breakpoint) and (max-width: $mdl-desktop-breakpoint - 1) {
+  .mdl-cell--hide-tablet {
     display: none !important;
   }
 }
