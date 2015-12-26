@@ -66,9 +66,13 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 $text-color-primary: rgba($color-black, 0.87) !default;
 $text-link-color: $color-accent !default;
 
-// Define whether to target elements directly for typographic enhancements.
-// Turning this off means you need to use mdl-* classes more often.
-// Other components may also fail to adhere to MD without these rules.
-// It is strongly recommended you leave this as true.
+/* ==========  BREAKPOINTS  ========== */
 
-$target-elements-directly: true !default;
+/*
+  Defines the breakpoints for tablets and desktops.
+  Per Responsive Web Design, build for mobile first
+  and react to larger devices.
+*/
+
+$mdl-desktop-breakpoint: 840px;
+$mdl-tablet-breakpoint: 480px;
