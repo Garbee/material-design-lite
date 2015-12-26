@@ -32,5 +32,5 @@
   @if(unit($size) != 'px') {
   @error "A pixel (px) value must be given to the rem function.";
 }
-  @return #{$size / 14}rem;
+  @return #{$size / 14px}rem;
 }

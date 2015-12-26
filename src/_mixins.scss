@@ -179,45 +179,45 @@ $shadow-ambient-shadow-opacity: 0.12 !default;
 
 // Focus shadow mixin.
 @mixin focus-shadow() {
-  box-shadow: 0 0 0.5714rem rgba(0,0,0,.18),0 0.5714rem 1.143rem rgba(0,0,0,.36);
+  box-shadow: 0 0 rem(8px) rgba(0,0,0,.18),0 rem(8px) rem(16px) rgba(0,0,0,.36);
 }
 
 @mixin shadow-2dp() {
-  box-shadow: 0 0.1429rem 0.1429rem 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.2143rem 0.07143rem -0.1429rem rgba(0, 0, 0, $shadow-key-umbra-opacity),
-              0 0.07143rem 0.3571rem 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  box-shadow: 0 rem(2px) rem(2px) 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(3px) rem(1px) rem(-2px) rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 rem(1px) rem(5px) 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
 }
 @mixin shadow-3dp() {
-  box-shadow: 0 0.2143rem 0.2857rem 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.2143rem 0.2143rem -0.1429rem rgba(0, 0, 0, $shadow-key-umbra-opacity),
-              0 0.07143rem 0.5714rem 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+  box-shadow: 0 rem(3px) rem(4px) 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(3px) rem(3px) rem(-2px) rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 rem(1px) rem(8px) 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
 }
 @mixin shadow-4dp() {
-  box-shadow: 0 0.2857rem 0.3571rem 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.07143rem 0.7143rem 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0 0.1429rem 0.2857rem -0.07143rem rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  box-shadow: 0 rem(4px) rem(5px) 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(1px) rem(10px) 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 rem(2px) rem(4px) rem(-1px) rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 @mixin shadow-6dp() {
-  box-shadow: 0 0.4286rem 0.7143rem 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.07143rem 1.286rem 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0 0.2143rem 0.3571rem -0.07143rem rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  box-shadow: 0 rem(6px) rem(10px) 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(1px) rem(18px) 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 rem(3px) rem(5px) rem(-1px) rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 @mixin shadow-8dp() {
-  box-shadow: 0 0.5714rem 0.7143rem 0.07143rem rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.2143rem 1rem 0.1429rem rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0 0.3571rem 0.3571rem -0.2143rem rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  box-shadow: 0 rem(8px) rem(10px) rem(1px) rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(3px) rem(14px) rem(2px) rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 rem(5px) rem(5px) rem(-3px) rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 
 @mixin shadow-16dp() {
-  box-shadow: 0 1.143rem 1.714rem 0.1429rem rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0  0.4286rem 2.143rem 0.3571rem rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0  0.5714rem 0.7143rem -0.3571rem rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  box-shadow: 0 rem(16px) rem(24px) rem(2px) rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0  rem(6px) rem(30px) rem(5px) rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0  rem(8px) rem(10px) rem(-5px) rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 
 @mixin shadow-24dp() {
-  box-shadow: 0  0.6429rem 3.286rem  0.5714rem rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-              0 0.7857rem 1.071rem -0.5rem rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
-              0 1.714rem 2.714rem  0.2143rem rgba(0, 0, 0, $shadow-key-umbra-opacity);
+  box-shadow: 0  rem(9px) rem(46px)  rem(8px) rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 rem(11px) rem(15px) rem(-7px) rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+  0 rem(24px) rem(38px)  rem(3px) rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
 
 /* Animations */
