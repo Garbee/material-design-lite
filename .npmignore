@@ -1,0 +1,11 @@
+.drone.*
+.editorconfig
+.eslintrc
+.eslintignore
+dist
+CONTRIBUTING.md
+test
+gulp
+gulpfile.babel.js
+.idea
+.sublime-workspace
