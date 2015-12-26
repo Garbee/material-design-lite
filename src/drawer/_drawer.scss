@@ -15,8 +15,8 @@
  */
 
 .mdl-drawer {
-  width: 17.14rem;
-  transform: translateX(-17.86rem);
+  width: rem(240px);
+  transform: translateX(rem(-250px));
   overflow-y: auto;
   overflow-x: hidden;
   flex-direction: column;
@@ -37,7 +37,7 @@
   display: flex;
   @include shadow-2dp();
   box-sizing: border-box;
-  border-right: 0.07143rem solid $palette-grey-300;
+  border-right: rem(1px) solid $palette-grey-300;
 
   span.mdl-drawer__divider {
     width: 100%;
@@ -50,7 +50,7 @@
       Taken from Light background divider percentage.
     */
     background-color: rgba($color-black, 0.12);
-    height: 0.07143rem;
+    height: rem(1px);
     flex-shrink: 0;
   }
 
