@@ -46,12 +46,6 @@ $trim-color-classes: true !default;
 
 /* ==========  TYPOGRAPHY  ========== */
 
-/*
-  Define the base font size.
-  This is used when calculating REM units throughout the project.
-*/
-$mdl-base-font-size: 14px;
-
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
