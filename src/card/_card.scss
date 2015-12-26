@@ -14,27 +14,33 @@
  * limitations under the License.
  */
 
-$card-image-placeholder-color: $color-accent !default;
-$card-border-color: rgba(0,0,0,0.1) !default;
+$card-image-placeholder-color: $color-accent;
+$card-border-color: rgba(0,0,0,0.1);
 
-$card-horizontal-padding: 1.143rem !default;
-$card-vertical-padding: 1.143rem !default;
+$card-horizontal-padding: 1.143rem;
+$card-vertical-padding: 1.143rem;
 
 .mdl-card {
   display: flex;
   flex-direction: column;
   font-size: 1.143rem;
   font-weight: 400;
+  font-family: $performance_font;
   min-height: 14.29rem;
   overflow: hidden;
   position: relative;
   background: $color-white;
   border-radius: 0.1429rem;
+  border: 1px solid $card-border-color;
   box-sizing: border-box;
+  @include shadow-2dp();
+
+  @media(min-width: 1024px) {
+    box-shadow: none;
+  }
 
   &__media {
     background: {
-      color: $card-image-placeholder-color;
       repeat: repeat;
       position: 50% 50%;
       attachment: scroll;
@@ -48,6 +54,7 @@ $card-vertical-padding: 1.143rem !default;
     align-items: center;
     color: $color-black;
     display: flex;
+    flex-direction: column;
     justify-content: stretch;
     line-height: normal;
     padding: $card-vertical-padding $card-horizontal-padding;
@@ -61,9 +68,8 @@ $card-vertical-padding: 1.143rem !default;
     }
 
     &-text {
-      align-self: flex-end;
+      align-self: flex-start;
       color: inherit;
-      display: flex;
       font-size: 1.714rem;
       font-weight: 300;
       line-height: normal;
@@ -76,6 +82,7 @@ $card-vertical-padding: 1.143rem !default;
     font-size: 1rem;
     color: rgba($color-black, 0.54);
     margin: 0;
+    align-self: flex-start;
   }
 
   &__supporting-text {
@@ -105,5 +112,11 @@ $card-vertical-padding: 1.143rem !default;
     position: absolute;
     right: 1.143rem;
     top: 1.143rem;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    @include shadow-8dp();
   }
 }
