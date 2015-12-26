@@ -48,5 +48,8 @@
 //@import "tabs/tabs";
 //@import "textfield/textfield";
 //@import "tooltip/tooltip";
-//@import "shadow/shadow";
+
+// Shadow second-to-last for best specificty.
+@import "shadow/shadow";
+// Grid always last for absolute specificity.
 //@import "grid/grid";
