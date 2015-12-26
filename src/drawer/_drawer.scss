@@ -15,8 +15,8 @@
  */
 
 .mdl-drawer {
-  width: 240px;
-  transform: translateX(-250px);
+  width: 17.14rem;
+  transform: translateX(-17.86rem);
   overflow-y: auto;
   overflow-x: hidden;
   flex-direction: column;
@@ -45,7 +45,11 @@
       top: 0.2857rem;
       bottom: 0.2857rem;
     }
-    background-color: rgba($palette-grey-300, 0.54);
+    /*
+      Color from https://www.google.com/design/spec/style/color.html#color-ui-color-application
+      Taken from Light background divider percentage.
+    */
+    background-color: rgba($color-black, 0.12);
     height: 0.07143rem;
     flex-shrink: 0;
   }
