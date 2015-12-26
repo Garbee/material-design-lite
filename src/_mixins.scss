@@ -156,43 +156,6 @@
   }
 }
 
-@mixin typo-blockquote($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  position: relative;
-  font-size: 1.714rem;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.35;
-  letter-spacing: 0.08em;
-
-  &:before {
-    position: absolute;
-    left: -0.5em;
-    content: '“';
-  }
-
-  &:after {
-    content: '”';
-    margin-left: -0.05em;
-  }
-
-  @if $colorContrast {
-    opacity: 0.54;
-  }
-}
-
-@mixin typo-menu($colorContrast: false, $usePreferred: true) {
-  @include typo-preferred-font($usePreferred);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0;
-
-  @if $colorContrast {
-    opacity: 0.87;
-  }
-}
-
 @mixin typo-icon() {
   font-family: 'Material Icons';
   font-weight: normal;
