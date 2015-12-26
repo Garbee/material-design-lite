@@ -21,7 +21,3 @@
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
 }
-
-@function rem($size) {
-  @return #{$size / $mdl-base-font-size}rem;
-}
