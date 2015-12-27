@@ -46,6 +46,8 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-strip-comments": "^1.1.2",
     "gulp-subtree": "^0.1.0",
     "humanize": "0.0.9",
     "merge-stream": "^1.0.0",

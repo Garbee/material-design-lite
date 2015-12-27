@@ -7,6 +7,7 @@ import * as util from './util.babel';
 import del from 'del';
 import path from 'path';
 import fs from 'fs';
+import strip from 'gulp-strip-comments';
 
 // Lint JavaScript
 export function jslint() {
@@ -62,6 +63,7 @@ export function mdlClosureJs() {
 export function mdlJs() {
   return gulp.src(config.SOURCES)
     .pipe($.sourcemaps.init())
+    .pipe(strip())
     // Transpile with babel
     .pipe($.babel())
     // Concatenate Scripts
@@ -75,10 +77,10 @@ export function mdlJs() {
 // Copy package manger and LICENSE files to dist
 export function metadata() {
   return gulp.src([
-    'package.json',
-    'bower.json',
-    'LICENSE'
-  ])
+      'package.json',
+      'bower.json',
+      'LICENSE'
+    ])
     .pipe(gulp.dest('dist'));
 }
 

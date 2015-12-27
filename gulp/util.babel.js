@@ -8,16 +8,17 @@ const $ = gulpLoadPlugins();
 
 export function cssPipeline(stream) {
   return stream
-   .pipe($.sourcemaps.init())
-   .pipe($.sass({
-     precision: 10,
-     onError: console.error.bind(console, 'Sass error:')
-   }))
-   .pipe($.cssInlineImages({webRoot: 'src'}))
-   .pipe($.autoprefixer(config.AUTOPREFIXER_BROWSERS))
-   .pipe($.header(config.BANNER, {pkg}))
-   .pipe($.sourcemaps.write('.'))
-   .pipe(gulp.dest('dist'));
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.autoprefixer(config.AUTOPREFIXER_BROWSERS))
+    .pipe($.stripCssComments())
+    .pipe($.header(config.BANNER, {pkg}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'));
 }
 
 export const noop = through.obj.bind(through);
