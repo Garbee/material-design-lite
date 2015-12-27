@@ -22,20 +22,5 @@ export const AUTOPREFIXER_BROWSERS = [
 ];
 
 export const SOURCES = [
-  // Base components
-  //'src/button/button.babel.js',
-  //'src/checkbox/checkbox.babel.js',
-  //'src/icon-toggle/icon-toggle.babel.js',
-  //'src/menu/menu.babel.js',
-  //'src/progress/progress.babel.js',
-  //'src/radio/radio.babel.js',
-  //'src/slider/slider.babel.js',
-  //'src/snackbar/snackbar.babel.js',
-  //'src/spinner/spinner.babel.js',
-  //'src/switch/switch.babel.js',
-  //'src/tabs/tabs.babel.js',
-  //'src/textfield/textfield.babel.js',
-  //'src/tooltip/tooltip.babel.js',
-  // And finally, the ripples
-  //'src/ripple/ripple.babel.js'
+  'src/snackbar/snackbar.babel.js'
 ];
