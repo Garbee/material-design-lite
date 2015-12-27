@@ -15,149 +15,118 @@
  * limitations under the License.
  */
 
-(function() {
-  'use strict';
-
+class MaterialTextfield {
   /**
-   * Class constructor for Textfield MDL component.
-   * Implements MDL component design pattern defined at:
-   * https://github.com/jasonmayes/mdl-component-design-pattern
+   * Construct a MaterialTextfield object.
    *
    * @constructor
    * @param {HTMLElement} element The element that will be upgraded.
    */
-  var MaterialTextfield = function MaterialTextfield(element) {
+  constructor(element) {
     this.element_ = element;
-    this.maxRows = this.Constant_.NO_MAX_ROWS;
-    // Initialize instance.
-    this.init();
-  };
-  window['MaterialTextfield'] = MaterialTextfield;
+    this.CssClasses_ = {
+      LABEL: 'mdl-textfield__label',
+      INPUT: 'mdl-textfield__input',
+      IS_DIRTY: 'mdl-textfield--dirty',
+      IS_FOCUSED: 'mdl-textfield--focused',
+      IS_DISABLED: 'mdl-textfield--disabled',
+      IS_INVALID: 'mdl-textfield--invalid',
+      IS_UPGRADED: 'mdl-textfield--upgraded'
+    };
 
-  /**
-   * Store constants in one place so they can be updated easily.
-   *
-   * @enum {string | number}
-   * @private
-   */
-  MaterialTextfield.prototype.Constant_ = {
-    NO_MAX_ROWS: -1,
-    MAX_ROWS_ATTRIBUTE: 'maxrows'
-  };
+    this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
 
-  /**
-   * Store strings for class names defined by this component that are used in
-   * JavaScript. This allows us to simply change it in one place should we
-   * decide to modify at a later date.
-   *
-   * @enum {string}
-   * @private
-   */
-  MaterialTextfield.prototype.CssClasses_ = {
-    LABEL: 'mdl-textfield__label',
-    INPUT: 'mdl-textfield__input',
-    IS_DIRTY: 'is-dirty',
-    IS_FOCUSED: 'is-focused',
-    IS_DISABLED: 'is-disabled',
-    IS_INVALID: 'is-invalid',
-    IS_UPGRADED: 'is-upgraded'
-  };
-
-  /**
-   * Handle input being entered.
-   *
-   * @param {Event} event The event that fired.
-   * @private
-   */
-  MaterialTextfield.prototype.onKeyDown_ = function(event) {
-    var currentRowCount = event.target.value.split('\n').length;
-    if (event.keyCode === 13) {
-      if (currentRowCount >= this.maxRows) {
-        event.preventDefault();
-      }
+    if (!this.input_) {
+      throw new Error('An input element must be a child of a textfield block.');
     }
-  };
+
+    this.input_.addEventListener('input', this.updateClasses_.bind(this));
+    this.input_.addEventListener('focus', this.onFocus_.bind(this));
+    this.input_.addEventListener('blur', this.onBlur_.bind(this));
+    this.input_.addEventListener('reset', this.onReset_.bind(this));
+    var invalid = this.element_.classList
+      .contains(this.CssClasses_.IS_INVALID);
+    this.updateClasses_();
+    this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
+    if (invalid) {
+      this.element_.classList.add(this.CssClasses_.IS_INVALID);
+    }
+    if (this.input_.hasAttribute('autofocus')) {
+      this.element_.focus();
+      this.checkFocus();
+    }
+  }
 
   /**
-   * Handle focus.
-   *
-   * @param {Event} event The event that fired.
+   * Handle focus events.
    * @private
    */
-  MaterialTextfield.prototype.onFocus_ = function(event) {
+  onFocus_() {
     this.checkFocus();
-  };
+  }
 
   /**
-   * Handle lost focus.
+   * Handle lost focus
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onBlur_ = function(event) {
+  onBlur_() {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
-  };
+  }
 
   /**
    * Handle reset event from out side.
    *
-   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialTextfield.prototype.onReset_ = function(event) {
+  onReset_() {
     this.updateClasses_();
-  };
+  }
 
   /**
    * Handle class updates.
    *
    * @private
    */
-  MaterialTextfield.prototype.updateClasses_ = function() {
+  updateClasses_() {
     this.checkDisabled();
     this.checkValidity();
     this.checkDirty();
     this.checkFocus();
-  };
-
-  // Public methods.
+  }
 
   /**
-   * Check the disabled state and update field accordingly.
+   * Check the disabled state of the input and update view accordingly.
    *
    * @public
    */
-  MaterialTextfield.prototype.checkDisabled = function() {
+  checkDisabled() {
     if (this.input_.disabled) {
       this.element_.classList.add(this.CssClasses_.IS_DISABLED);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_DISABLED);
     }
-  };
-  MaterialTextfield.prototype['checkDisabled'] =
-      MaterialTextfield.prototype.checkDisabled;
+  }
 
   /**
-  * Check the focus state and update field accordingly.
-  *
-  * @public
-  */
-  MaterialTextfield.prototype.checkFocus = function() {
+   * Check the focus state and update field accordingly.
+   *
+   * @public
+   */
+  checkFocus() {
     if (Boolean(this.element_.querySelector(':focus'))) {
       this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
     }
-  };
-  MaterialTextfield.prototype['checkFocus'] =
-    MaterialTextfield.prototype.checkFocus;
+  }
 
   /**
    * Check the validity state and update field accordingly.
    *
    * @public
    */
-  MaterialTextfield.prototype.checkValidity = function() {
+  checkValidity() {
     if (this.input_.validity) {
       if (this.input_.validity.valid) {
         this.element_.classList.remove(this.CssClasses_.IS_INVALID);
@@ -165,141 +134,61 @@
         this.element_.classList.add(this.CssClasses_.IS_INVALID);
       }
     }
-  };
-  MaterialTextfield.prototype['checkValidity'] =
-      MaterialTextfield.prototype.checkValidity;
+  }
 
   /**
    * Check the dirty state and update field accordingly.
    *
    * @public
    */
-  MaterialTextfield.prototype.checkDirty = function() {
+  checkDirty() {
     if (this.input_.value && this.input_.value.length > 0) {
       this.element_.classList.add(this.CssClasses_.IS_DIRTY);
     } else {
       this.element_.classList.remove(this.CssClasses_.IS_DIRTY);
     }
-  };
-  MaterialTextfield.prototype['checkDirty'] =
-      MaterialTextfield.prototype.checkDirty;
+  }
 
   /**
    * Disable text field.
    *
    * @public
    */
-  MaterialTextfield.prototype.disable = function() {
+  disable() {
     this.input_.disabled = true;
     this.updateClasses_();
-  };
-  MaterialTextfield.prototype['disable'] = MaterialTextfield.prototype.disable;
+  }
 
   /**
    * Enable text field.
    *
    * @public
    */
-  MaterialTextfield.prototype.enable = function() {
+  enable() {
     this.input_.disabled = false;
     this.updateClasses_();
-  };
-  MaterialTextfield.prototype['enable'] = MaterialTextfield.prototype.enable;
+  }
 
   /**
    * Update text field value.
    *
-   * @param {string} value The value to which to set the control (optional).
+   * @param {string} value The value to which to set the control.
    * @public
    */
-  MaterialTextfield.prototype.change = function(value) {
-
-    this.input_.value = value || '';
+  change(value) {
+    this.input_.value = value;
     this.updateClasses_();
-  };
-  MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
+  }
 
   /**
-   * Initialize element.
-   */
-  MaterialTextfield.prototype.init = function() {
-
-    if (this.element_) {
-      this.label_ = this.element_.querySelector('.' + this.CssClasses_.LABEL);
-      this.input_ = this.element_.querySelector('.' + this.CssClasses_.INPUT);
-
-      if (this.input_) {
-        if (this.input_.hasAttribute(
-              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE))) {
-          this.maxRows = parseInt(this.input_.getAttribute(
-              /** @type {string} */ (this.Constant_.MAX_ROWS_ATTRIBUTE)), 10);
-          if (isNaN(this.maxRows)) {
-            this.maxRows = this.Constant_.NO_MAX_ROWS;
-          }
-        }
-
-        this.boundUpdateClassesHandler = this.updateClasses_.bind(this);
-        this.boundFocusHandler = this.onFocus_.bind(this);
-        this.boundBlurHandler = this.onBlur_.bind(this);
-        this.boundResetHandler = this.onReset_.bind(this);
-        this.input_.addEventListener('input', this.boundUpdateClassesHandler);
-        this.input_.addEventListener('focus', this.boundFocusHandler);
-        this.input_.addEventListener('blur', this.boundBlurHandler);
-        this.input_.addEventListener('reset', this.boundResetHandler);
-
-        if (this.maxRows !== this.Constant_.NO_MAX_ROWS) {
-          // TODO: This should handle pasting multi line text.
-          // Currently doesn't.
-          this.boundKeyDownHandler = this.onKeyDown_.bind(this);
-          this.input_.addEventListener('keydown', this.boundKeyDownHandler);
-        }
-        var invalid = this.element_.classList
-          .contains(this.CssClasses_.IS_INVALID);
-        this.updateClasses_();
-        this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
-        if (invalid) {
-          this.element_.classList.add(this.CssClasses_.IS_INVALID);
-        }
-        if (this.input_.hasAttribute('autofocus')) {
-          this.element_.focus();
-          this.checkFocus();
-        }
-      }
-    }
-  };
-
-  /**
-   * Downgrade the component
-   *
-   * @private
-   */
-  MaterialTextfield.prototype.mdlDowngrade_ = function() {
-    this.input_.removeEventListener('input', this.boundUpdateClassesHandler);
-    this.input_.removeEventListener('focus', this.boundFocusHandler);
-    this.input_.removeEventListener('blur', this.boundBlurHandler);
-    this.input_.removeEventListener('reset', this.boundResetHandler);
-    if (this.boundKeyDownHandler) {
-      this.input_.removeEventListener('keydown', this.boundKeyDownHandler);
-    }
-  };
-
-  /**
-   * Public alias for the downgrade method.
+   * Clear the textfield value.
    *
    * @public
    */
-  MaterialTextfield.prototype.mdlDowngrade =
-      MaterialTextfield.prototype.mdlDowngrade_;
+  clear() {
+    this.input_.value = '';
+    this.updateClasses_();
+  }
+}
 
-  MaterialTextfield.prototype['mdlDowngrade'] =
-      MaterialTextfield.prototype.mdlDowngrade;
-
-  // The component registers itself. It can assume componentHandler is available
-  // in the global scope.
-  componentHandler.register({
-    constructor: MaterialTextfield,
-    classAsString: 'MaterialTextfield',
-    cssClass: 'mdl-js-textfield',
-    widget: true
-  });
-})();
+export default MaterialTextfield;

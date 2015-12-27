@@ -36,7 +36,6 @@ $input-text-error-color: rgb(222, 50, 38);
   font-size: $input-text-font-size;
   display: inline-block;
   box-sizing: border-box;
-  max-width: 100%;
   margin: 0;
   padding: $input-text-vertical-spacing 0;
   height: rem(72px);
@@ -46,11 +45,6 @@ $input-text-error-color: rgb(222, 50, 38);
     position: absolute;
     bottom: $input-text-vertical-spacing;
   }
-}
-
-// Optional class to align right.
-.mdl-textfield--align-right {
-  text-align: right;
 }
 
 // Optional class to make the text field expandable.
@@ -73,17 +67,17 @@ $input-text-error-color: rgb(222, 50, 38);
   text-align: left;
   color: inherit;
 
-  .mdl-textfield.is-focused & {
+  .mdl-textfield.mdl-textfield--focused & {
     outline: none;
   }
 
-  .mdl-textfield.is-invalid & {
+  .mdl-textfield.mdl-textfield--invalid & {
     border-color: $input-text-error-color;
     box-shadow: none;
   }
 
   fieldset[disabled] .mdl-textfield &,
-  .mdl-textfield.is-disabled & {
+  .mdl-textfield.mdl-textfield--disabled & {
     background-color: transparent;
     border-bottom: 1px dotted $input-text-disabled-color;
     color: $input-text-disabled-text-color;
@@ -110,7 +104,7 @@ $input-text-error-color: rgb(222, 50, 38);
   white-space: nowrap;
   text-align: left;
 
-  .mdl-textfield.is-dirty & {
+  .mdl-textfield.mdl-textfield--dirty & {
     visibility: hidden;
   }
 
@@ -120,24 +114,24 @@ $input-text-error-color: rgb(222, 50, 38);
   }
 
   fieldset[disabled] .mdl-textfield &,
-  .mdl-textfield.is-disabled.is-disabled & {
+  .mdl-textfield.mdl-textfield--disabled.mdl-textfield--disabled & {
     color: $input-text-disabled-text-color;
   }
 
-  .mdl-textfield--floating-label.is-focused &,
-  .mdl-textfield--floating-label.is-dirty & {
+  .mdl-textfield--floating-label.mdl-textfield--focused &,
+  .mdl-textfield--floating-label.mdl-textfield--dirty & {
     color: $input-text-highlight-color;
     font-size : $input-text-floating-label-fontsize;
     top: $input-text-vertical-spacing - ($input-text-floating-label-fontsize + $input-text-padding);
     visibility: visible;
   }
 
-  .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder &,
-  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder &{
+  .mdl-textfield--floating-label.mdl-textfield--focused .mdl-textfield__expandable-holder &,
+  .mdl-textfield--floating-label.mdl-textfield--dirty .mdl-textfield__expandable-holder &{
     top: -($input-text-floating-label-fontsize + $input-text-padding);
   }
 
-  .mdl-textfield--floating-label.is-invalid & {
+  .mdl-textfield--floating-label.mdl-textfield--invalid & {
     color: $input-text-error-color;
     font-size: $input-text-floating-label-fontsize;
   }
@@ -155,13 +149,13 @@ $input-text-error-color: rgb(222, 50, 38);
     width: rem(10px);
   }
 
-  .mdl-textfield.is-focused &:after {
+  .mdl-textfield.mdl-textfield--focused &:after {
     left: 0;
     visibility: visible;
     width: 100%;
   }
 
-  .mdl-textfield.is-invalid &:after {
+  .mdl-textfield.mdl-textfield--invalid &:after {
     background-color: $input-text-error-color;
   }
 }
@@ -175,7 +169,7 @@ $input-text-error-color: rgb(222, 50, 38);
   visibility: hidden;
   display: block;
 
-  .mdl-textfield.is-invalid & {
+  .mdl-textfield.mdl-textfield--invalid & {
     visibility: visible;
   }
 }
@@ -194,7 +188,7 @@ $input-text-error-color: rgb(222, 50, 38);
   // inner element :(
   max-width: 0.1px;
 
-  .mdl-textfield.is-focused &, .mdl-textfield.is-dirty & {
+  .mdl-textfield.mdl-textfield--focused &, .mdl-textfield.mdl-textfield--dirty & {
     // This is an unfortunate hack. Animating between widths in percent (%)
     // in many browsers (Chrome, Firefox) only animates the inner visual style
     // of the input - the outer bounding box still 'jumps'.
