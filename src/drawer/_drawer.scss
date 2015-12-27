@@ -120,7 +120,7 @@
   }
 
   &--fixed {
-    @media(min-width: 768px) {
+    @media(min-width: $mdl-desktop-breakpoint) {
       transform: translateX(0);
 
       & + .mdl-drawer__backdrop {
@@ -129,7 +129,11 @@
       }
 
       &.mdl-drawer--clipped {
-        margin-top: 4rem;
+        margin-top: rem(56px);
+
+        @media(min-width: $mdl-desktop-breakpoint) {
+          margin-top: rem(64px);
+        }
       }
     }
   }

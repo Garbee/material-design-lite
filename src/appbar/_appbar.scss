@@ -19,10 +19,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
   background-color: $color-primary;
 
-  @media(min-width: 1024px) {
+  @media(min-width: $mdl-desktop-breakpoint) {
     height: rem(64px);
   }
 
@@ -33,11 +32,12 @@
     justify-content: space-between;
     width: 100%;
 
-    > .mdl-appbar__action + .mdl-appbar__title {
+    > .mdl-appbar__drawer-toggle + .mdl-appbar__title {
       margin-left: rem(12px);
     }
   }
 
+  &__drawer-toggle,
   &__action {
     color: white;
     align-self: center;
@@ -84,5 +84,33 @@
   &--fixed {
     position: fixed;
     top: 0;
+    width: 100%;
+  }
+
+  &--fixed-drawer {
+    @media(min-width: $mdl-desktop-breakpoint) {
+      margin-left: rem(240px);
+      right: 0;
+      width: auto;
+
+      &.mdl-appbar--fixed {
+        left: rem(240px);
+        margin-left: 0;
+      }
+
+      .mdl-appbar__drawer-toggle {
+        display: none;
+      }
+
+      .mdl-appbar__title {
+        margin-left: rem(12px);
+      }
+    }
+  }
+
+  &--clipped-drawer.mdl-appbar--clipped-drawer {
+    width: 100%;
+    margin-left: 0;
+    left: 0;
   }
 }
