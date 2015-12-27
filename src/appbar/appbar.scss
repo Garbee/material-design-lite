@@ -1,0 +1,88 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.mdl-appbar {
+  height: rem(56px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  background-color: $color-primary;
+
+  @media(min-width: 1024px) {
+    height: rem(64px);
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+
+    > .mdl-appbar__action + .mdl-appbar__title {
+      margin-left: rem(12px);
+    }
+  }
+
+  &__action {
+    color: white;
+    align-self: center;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: rem(16px);
+
+    &:active,
+    &:focus {
+      outline-color: $color-accent;
+    }
+
+    @media(min-width: $mdl-desktop-breakpoint) {
+      padding: rem(20px);
+    }
+  }
+
+  &__title {
+    align-self: center;
+    margin-right: auto;
+    margin-left: rem(24px);
+    &-text {
+      color:white;
+      font-size: rem(16px);
+      &:active,
+      &:focus {
+        outline-color: $color-accent;
+      }
+    }
+  }
+
+  &__actions {
+    align-self: flex-end;
+    &:last-child {
+      margin-right: rem(16px);
+
+      @media(min-width: $mdl-desktop-breakpoint) {
+        margin-right: rem(24px);
+      }
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+  }
+}
