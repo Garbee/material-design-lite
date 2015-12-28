@@ -61,7 +61,7 @@
     margin-right: auto;
     margin-left: rem(24px);
     &-text {
-      color:white;
+      color: white;
       font-size: rem(16px);
       &:active,
       &:focus {
@@ -72,10 +72,13 @@
 
   &__actions {
     align-self: flex-end;
-    &:last-child {
-      margin-right: rem(16px);
-
-      @media(min-width: $mdl-desktop-breakpoint) {
+    @media(min-width: $mdl-tablet-breakpoint) {
+      &:last-child {
+        margin-right: rem(16px);
+      }
+    }
+    @media(min-width: $mdl-desktop-breakpoint) {
+      &:last-child {
         margin-right: rem(24px);
       }
     }
