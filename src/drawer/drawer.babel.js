@@ -60,12 +60,32 @@ class MaterialDrawer {
   }
 
   /**
+   * Fire an event before actions are carried out.
+   *
+   * @return {Event} The before action event.
+   * @private
+   */
+  fireBeforeEvent_() {
+    var eventName = 'mdl-drawer-showing';
+    if (this.element_.classList.contains(this.cssClasses_.VISIBLE)) {
+      eventName = 'mdl-drawer-hiding';
+    }
+    var event = document.createEvent('Event');
+    event.initEvent(eventName, true, true);
+    this.element_.dispatchEvent(event);
+    return event;
+  }
+
+  /**
    * Attempt to show the drawer if it is currently not visible.
    * @public
    */
   show() {
-    this.element_.classList.add(this.cssClasses_.VISIBLE);
-    this.fireAfterEvent_();
+    var event = this.fireBeforeEvent_();
+    if (!event.defaultPrevented) {
+      this.element_.classList.add(this.cssClasses_.VISIBLE);
+      this.fireAfterEvent_();
+    }
   }
 
   /**
@@ -73,8 +93,11 @@ class MaterialDrawer {
    * @public
    */
   hide() {
-    this.element_.classList.remove(this.cssClasses_.VISIBLE);
-    this.fireAfterEvent_();
+    var event = this.fireBeforeEvent_();
+    if (!event.defaultPrevented) {
+      this.element_.classList.remove(this.cssClasses_.VISIBLE);
+      this.fireAfterEvent_();
+    }
   }
 
   /**
@@ -82,8 +105,11 @@ class MaterialDrawer {
    * @public
    */
   toggle() {
-    this.element_.classList.toggle(this.cssClasses_.VISIBLE);
-    this.fireAfterEvent_();
+    var event = this.fireBeforeEvent_();
+    if (!event.defaultPrevented) {
+      this.element_.classList.toggle(this.cssClasses_.VISIBLE);
+      this.fireAfterEvent_();
+    }
   }
 }
 
