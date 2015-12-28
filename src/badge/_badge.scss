@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-$badge-size : 1.571rem !default;
-$badge-padding: 0.1429rem !default;
-$badge-overlap: 0.8571rem !default;
+$badge-size : 22px;
+$badge-padding: 2px;
+$badge-overlap: 12px;
+$mdl-badge-data-attribute-name: 'data-mdl-badge';
 
 .mdl-badge {
   position : relative;
   white-space: nowrap;
-  margin-right: ($badge-size + $badge-padding);
+  margin-right: rem(($badge-size + $badge-padding));
 
-  &:not([data-badge]) {
+  &:not([#{$mdl-badge-data-attribute-name}]) {
     margin-right: auto;
   }
 
-  &[data-badge]:after {
-    content: attr(data-badge);
+  &[#{$mdl-badge-data-attribute-name}]:after {
+    content: attr(#{$mdl-badge-data-attribute-name});
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -36,35 +37,35 @@ $badge-overlap: 0.8571rem !default;
     align-content: center;
     align-items: center;
     position: absolute;
-    top: -($badge-size / 2);
-    right: -($badge-size + $badge-padding);
+    top: -#{rem(($badge-size / 2))};
+    right: -#{rem(($badge-size + $badge-padding))};
     font-family: $preferred_font;
     font-weight: 600;
-    font-size: 0.8571rem;
-    width: $badge-size;
-    height: $badge-size;
+    font-size: rem(12px);
+    width: rem($badge-size);
+    height: rem($badge-size);
     border-radius : 50%;
     background: $color-accent;
     color: $color-accent-contrast;
 
     .mdl-button & {
-      top: -10px;
-      right: -5px;
+      top: -#{rem(10px)};
+      right: -#{rem(5px)};
     }
   }
 
   &--no-background {
-    &[data-badge]:after {
+    &[#{$mdl-badge-data-attribute-name}]:after {
       color: $color-accent;
       background: $color-accent-contrast;
-      box-shadow: 0 0 1px gray;
+      box-shadow: 0 0 rem(1px) $palette-grey-500;
     }
   }
 
   &--overlap {
-    margin-right: ($badge-size - $badge-overlap);
+    margin-right: rem(($badge-size - $badge-overlap));
     &:after {
-      right: -($badge-size - $badge-overlap);
+      right: -#{rem(($badge-size - $badge-overlap))};
     }
   }
 }
