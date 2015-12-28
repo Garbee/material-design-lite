@@ -32,7 +32,10 @@ class MaterialDrawer {
     };
     var backdropFound = false;
     Array.prototype.forEach.call(this.element_.parentNode.childNodes, node => {
-      if (node.classList.contains(this.cssClasses_.BACKDROP)) {
+      if (
+        node.classList &&
+        node.classList.contains(this.cssClasses_.BACKDROP)
+      ) {
         backdropFound = true;
       }
     });
@@ -42,11 +45,27 @@ class MaterialDrawer {
   }
 
   /**
+   * Fire an event after actions are completed.
+   *
+   * @private
+   */
+  fireAfterEvent_() {
+    var eventName = 'mdl-drawer-hidden';
+    if (this.element_.classList.contains(this.cssClasses_.VISIBLE)) {
+      eventName = 'mdl-drawer-shown';
+    }
+    var event = document.createEvent('Event');
+    event.initEvent(eventName, true, false);
+    this.element_.dispatchEvent(event);
+  }
+
+  /**
    * Attempt to show the drawer if it is currently not visible.
    * @public
    */
   show() {
     this.element_.classList.add(this.cssClasses_.VISIBLE);
+    this.fireAfterEvent_();
   }
 
   /**
@@ -55,6 +74,7 @@ class MaterialDrawer {
    */
   hide() {
     this.element_.classList.remove(this.cssClasses_.VISIBLE);
+    this.fireAfterEvent_();
   }
 
   /**
@@ -63,6 +83,7 @@ class MaterialDrawer {
    */
   toggle() {
     this.element_.classList.toggle(this.cssClasses_.VISIBLE);
+    this.fireAfterEvent_();
   }
 }
 
