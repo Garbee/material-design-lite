@@ -181,11 +181,11 @@ $tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
 
 /* ==========  Footer  ========== */
 
-$footer-bg-color: unquote("rgb(#{$palette-grey-800})") !default;
-$footer-color: unquote("rgb(#{$palette-grey-500})") !default;
+$footer-bg-color: $palette-grey-800;
+$footer-color: $palette-grey-500;
 $footer-heading-color: unquote("rgb(#{$palette-grey-300})") !default;
-$footer-button-fill-color: $footer-color !default;
-$footer-underline-color: $footer-color !default;
+$footer-button-fill-color: $footer-color;
+$footer-underline-color: $footer-color;
 
 /* SWITCH */
 
@@ -284,11 +284,6 @@ $footer-heading-font-size: 14px !default;
 $footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
 $footer-btn-size: 36px  !default;
 
-/*mini-footer*/
-$padding: 16px !default;
-$footer-heading-font-size: 24px !default;
-$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px !default;
 
 /* CHECKBOX */
 
