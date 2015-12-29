@@ -29,7 +29,6 @@
  * -----List
  * -----Layout
  * -----Icon toggles
- * -----Footer
  * -----Column
  * -----Checkbox
  * -----Card
@@ -179,14 +178,6 @@ $default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 $tooltip-text-color: unquote("rgb(#{$color-white})") !default;
 $tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
 
-/* ==========  Footer  ========== */
-
-$footer-bg-color: $palette-grey-800;
-$footer-color: $palette-grey-500;
-$footer-heading-color: unquote("rgb(#{$palette-grey-300})") !default;
-$footer-button-fill-color: $footer-color;
-$footer-underline-color: $footer-color;
-
 /* SWITCH */
 
 $switch-label-font-size: 16px !default;
@@ -274,16 +265,6 @@ $layout-tab-highlight-thickness: 2px !default;
 $icon-toggle-size: 32px !default;
 $icon-toggle-font-size: 24px !default;
 $icon-toggle-ripple-size: 36px !default;
-
-/* FOOTER */
-
-/*mega-footer*/
-$footer-min-padding: 16px !default;
-$footer-padding-sides: 40px !default;
-$footer-heading-font-size: 14px !default;
-$footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px  !default;
-
 
 /* CHECKBOX */
 
