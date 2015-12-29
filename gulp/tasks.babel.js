@@ -64,10 +64,18 @@ export function mdlJs() {
   return gulp.src(config.SOURCES)
     .pipe($.sourcemaps.init())
     .pipe(strip())
+    .pipe($.replace(new RegExp("export default (Material)([a-zA-Z]+);", "g"), ''))
     // Transpile with babel
     .pipe($.babel())
+      // Clean up duplicate methods
+    .pipe($.replace(config.BABEL.classCallCheck, ''))
+    .pipe($.replace(config.BABEL.createClassFunction, ''))
+    .pipe($.replace('\'use strict\';', ''))
     // Concatenate Scripts
     .pipe($.concat('material.js'))
+    .pipe($.insert.prepend(config.BABEL.createClassFunction + '\n'))
+    .pipe($.insert.prepend(config.BABEL.classCallCheck + '\n'))
+    .pipe($.insert.prepend('\'use strict\';\n'))
     .pipe(gulp.dest('dist'))
     // Write Source Maps
     .pipe($.sourcemaps.write('.'))
