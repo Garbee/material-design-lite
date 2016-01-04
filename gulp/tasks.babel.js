@@ -74,6 +74,7 @@ export function mdlJs() {
     .pipe($.insert.prepend(config.BABEL.createClassFunction + '\n'))
     .pipe($.insert.prepend(config.BABEL.classCallCheck + '\n'))
     .pipe($.insert.prepend('\'use strict\';\n'))
+    .pipe($.header(config.BANNER, {pkg}))
     .pipe(gulp.dest('dist'))
     // Write Source Maps
     .pipe($.sourcemaps.write('.'))
