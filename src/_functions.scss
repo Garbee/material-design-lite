@@ -24,13 +24,12 @@
 
 /*
   Convert pixels to REM.
-  Divides against hard-coded 14px base.
-  This is because MDL's default base is 14px.
+  Divides against the browser default 16px font size.
   If the developer changes the unit the calculations will still scale the components.
 */
 @function rem($size) {
   @if(unit($size) != 'px') {
-  @error "A pixel (px) value must be given to the rem function.";
-}
-  @return #{$size / 14px}rem;
+    @error "A pixel (px) value must be given to the rem function.";
+  }
+  @return #{$size / 16px}rem;
 }
