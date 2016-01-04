@@ -42,8 +42,8 @@
   span.mdl-drawer__divider {
     width: 100%;
     margin: {
-      top: 0.2857rem;
-      bottom: 0.2857rem;
+      top: rem(4px);
+      bottom: rem(4px);
     }
     /*
       Color from https://www.google.com/design/spec/style/color.html#color-ui-color-application
@@ -56,13 +56,13 @@
 
   &__content {
     padding: {
-      left: 1.143rem;
-      right: 1.143rem;
+      left: rem(16px);
+      right: rem(16px);
     }
-    @media(min-width: 760px) {
+    @media(min-width: $mdl-desktop-breakpoint) {
       padding: {
-        left: 1.714rem;
-        right: 1.714rem;
+        left: rem(24px);
+        right: rem(24px);
       }
     }
   }
@@ -73,7 +73,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     margin: {
-      top: 0.5714rem;
+      top: rem(8px);
       right: 0;
       bottom: 0;
       left: 0;
@@ -84,9 +84,9 @@
     &-item {
       @extend .mdl-drawer__content;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: rem(14px);
       color: rgba($color-black, 0.87);
-      height: 3.429rem;
+      height: rem(48px);
       text-decoration: none;
       display: flex;
       justify-content: center;
