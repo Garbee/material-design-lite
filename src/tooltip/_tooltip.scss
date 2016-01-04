@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-@import "../variables";
-
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
   will-change: transform;
   z-index: 999;
-  background: $tooltip-background-color;
-  border-radius: 2px;
-  color: $tooltip-text-color;
+  background: rgba($palette-grey-700, 0.9);
+  border-radius: rem(2px);
+  color: $color-white;
   display: inline-block;
-  font-size: $tooltip-font-size;
+  font-size: rem(10px);
   font-weight: 500;
-  line-height: 14px;
-  max-width: 170px;
+  line-height: rem(14px);
+  max-width: rem(170px);
   position: fixed;
   top: -500px;
   left: -500px;
-  padding: 8px;
+  padding: rem(8px);
   text-align: center;
 }
 .mdl-tooltip.is-active {
@@ -40,9 +38,9 @@
 }
 
 .mdl-tooltip--large {
-  line-height: 14px;
-  font-size: $tooltip-font-size-large;
-  padding: 16px;
+  line-height: rem(14px);
+  font-size: rem(14px);
+  padding: rem(16px);
 }
 
 @keyframes pulse {

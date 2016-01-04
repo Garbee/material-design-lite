@@ -165,11 +165,6 @@ $disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
 
 $default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
 
-/* ==========  Tooltips  ========== */
-
-$tooltip-text-color: unquote("rgb(#{$color-white})") !default;
-$tooltip-background-color: unquote("rgba(#{$palette-grey-700}, 0.9)") !default;
-
 /* SWITCH */
 
 $switch-label-font-size: 16px !default;
@@ -265,6 +260,3 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
 /* PROGRESS */
 $bar-height: 4px !default;
 
-/* TOOLTIP */
-$tooltip-font-size: 10px !default;
-$tooltip-font-size-large: 14px !default;
