@@ -50,7 +50,7 @@
 @import "textfield/textfield";
 @import "tooltip/tooltip";
 
-// Shadow second-to-last for best specificty.
+// Shadow second-to-last for best specificity.
 @import "shadow/shadow";
 // Grid always last for absolute specificity.
 @import "grid/grid";

@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+/* Resets */
+
+@mixin mdl-reset-tap-highlight() {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 /* Typography */
 
 @mixin typo-preferred-font($usePreferred: true) {
