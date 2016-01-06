@@ -53,6 +53,7 @@
     border: none;
     margin: 0;
     padding: rem(16px);
+    color: inherit;
 
     &:active,
     &:focus {
@@ -69,8 +70,8 @@
     margin-right: auto;
     margin-left: rem(12px);
     &-text {
-      color: rgba($color-black, 0.87);
       font-size: rem(16px);
+      color: rgba($color-black, 0.80);
       &:active,
       &:focus {
         outline-color: $color-accent;
@@ -130,7 +131,18 @@
   &_colored {
     background-color: $color-primary;
     color: $color-white;
+
+    .mdl-appbar__title .mdl-appbar__title-text {
+      color: $color-white;
+    }
   }
+}
+
+// Have to move this out of the main flow so the linter comment works.
+/* postcss-bem-linter: ignore */
+.mdl-appbar__drawer-toggle *,
+.mdl-appbar__action * {
+  pointer-events: none;
 }
 
 /** @end */

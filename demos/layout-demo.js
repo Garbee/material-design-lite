@@ -2,6 +2,12 @@
 
 var drawerToggle = document.querySelector('.mdl-appbar__drawer-toggle');
 var drawer = new MaterialDrawer(document.querySelector('.mdl-drawer'));
+var menu = new MaterialMenu(document.querySelector('.appbar-overflow-menu'));
+var menuToggle = document.querySelector('#overflow');
+
+menuToggle.addEventListener('click', function(event) {
+  menu.toggle(event);
+});
 
 drawerToggle.addEventListener('click', function() {
   drawer.toggle();
