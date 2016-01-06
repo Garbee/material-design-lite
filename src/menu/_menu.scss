@@ -82,7 +82,8 @@
       border-bottom: rem(1px) solid rgba($color-black, 0.12);
     }
 
-    &[disabled] {
+    &[disabled],
+    &[aria-disabled] {
       background-color: rgba(0, 0, 0, .30);
       cursor: default;
       color: rgba($color-black, .38);
@@ -90,7 +91,8 @@
 
     &:hover {
       background-color: $palette-grey-200;
-      &[disabled] {
+      &[disabled],
+      &[aria-disabled] {
         background-color: rgba(0, 0, 0, .30);
       }
     }
