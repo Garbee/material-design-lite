@@ -1,87 +1,104 @@
-@import "../variables";
-@import "../mixins";
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+$mdl-list-supporting-text-text-color: rgba($color-black, 0.54);
 
 .mdl-list {
   display: block;
-  padding: 8px 0 ;
+  padding: rem(8px) 0 ;
   list-style: none;
-}
+  font-family: $performance_font;
 
-.mdl-list__item {
-  @include typo-body-1();
-  display: flex;
-  box-sizing: border-box;
-  height: 48px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding : 16px 16px 20px 16px;
-  cursor: default;
-  & .mdl-list__item-primary-content {
-    order:0;
-    flex-grow: 2;
-    text-decoration: none;
-
-    & .material-icons {
-      font-size: 40px;
-      line-height: 0;
-      vertical-align: middle;
-      padding: 0 12px 0 0;
-    }
-  }
-
-  & .mdl-list__item-secondary-content {
+  &__item {
+    @include typo-body-1();
     display: flex;
-    flex-flow: column;
-    align-items: flex-end;
-    & .mdl-list__item-secondary-action label { display: inline; }
-    & .mdl-list__item-secondary-info {
-      @include typo-caption();
-      margin-bottom: 10px;
-      color: $list-supporting-text-text-color;
-    }
-    & .mdl-list__item-sub-header {
-      padding: 0 0 0 16px;
-    }
-  }
-}
+    box-sizing: border-box;
+    height: rem(48px);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding : rem(16px) rem(16px) rem(20px) rem(16px);
+    cursor: default;
+    & .mdl-list__item-primary-content {
+      order:0;
+      flex-grow: 2;
+      text-decoration: none;
 
-.mdl-list__item-avatar {
-  height: 56px;
-}
-
-.mdl-list__item-two-line {
-  height: 72px;
-
-  & .mdl-list__item-primary-content {
-    & .material-icons {
-      vertical-align: text-bottom;
+      & .material-icons {
+        font-size: rem(40px);
+        line-height: 0;
+        vertical-align: middle;
+        padding: 0 rem(12px) 0 0;
+      }
     }
 
-    & .mdl-list__item-sub-title, {
-      @include typo-caption();
-      display: block;
-      padding : 0 0 0 56px;
+    & .mdl-list__item-secondary-content {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+      & .mdl-list__item-secondary-action label {
+        display: inline;
+      }
+      & .mdl-list__item-secondary-info {
+        @include typo-caption();
+        margin-bottom: rem(10px);
+        color: $mdl-list-supporting-text-text-color;
+      }
+      & .mdl-list__item-sub-header {
+        padding: 0 0 0 rem(16px);
+      }
     }
-  }
-}
 
-.mdl-list__item-three-line {
-  height: 88px;
-
-  & .mdl-list__item-primary-content {
-    & .material-icons {
-      vertical-align: text-bottom;
+    &-avatar {
+      height: rem(56px);
     }
-  }
 
-  & .mdl-list__item-text-body {
-    @include typo-caption();
-    color: $list-supporting-text-text-color;
-    display: block;
-    height: 24px;
-    padding: 0 0 0 56px;
-    overflow: hidden;
+    &--two-line {
+      height: rem(72px);
+
+      & .mdl-list__item-primary-content {
+        & .material-icons {
+          vertical-align: text-bottom;
+        }
+
+        & .mdl-list__item-sub-title {
+          @include typo-caption();
+          display: block;
+          padding : 0 0 0 rem(56px);
+        }
+      }
+    }
+
+    &--three-line {
+      height: rem(88px);
+
+      & .mdl-list__item-primary-content {
+        & .material-icons {
+          vertical-align: text-bottom;
+        }
+      }
+
+      & .mdl-list__item-text-body {
+        @include typo-caption();
+        color: $mdl-list-supporting-text-text-color;
+        display: block;
+        height: rem(24px);
+        padding: 0 0 0 rem(56px);
+        overflow: hidden;
+      }
+    }
   }
 }
