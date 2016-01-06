@@ -57,11 +57,6 @@
 @import "color-definitions";
 @import "functions";
 
-/* ==========  IMAGES  ========== */
-$image_path: '/images' !default;
-
-/* ==========  Components  ========== */
-
 /* ==========  Radio Buttons  ========== */
 
 $radio-color: unquote("rgb(#{$color-primary})") !default;
@@ -71,26 +66,6 @@ $radio-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 /* ==========  Ripple effect  ========== */
 
 $ripple-bg-color: unquote("rgb(#{$color-light-contrast})") !default;
-
-/* ==========  Layout  ========== */
-
-$layout-nav-color: unquote("rgb(#{$palette-grey-300})") !default;
-
-// Drawer
-$layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
-$layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
-$layout-drawer-navigation-color: #757575 !default;
-$layout-drawer-navigation-link-active-background: unquote("rgb(#{$color-light-contrast})") !default;
-$layout-drawer-navigation-link-active-color: unquote("rgb(#{$palette-grey-300})") !default;
-
-// Header
-$layout-header-bg-color: unquote("rgb(#{$color-primary})") !default;
-$layout-header-text-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$layout-header-nav-hover-color: unquote("rgba(#{$palette-grey-700}, 0.6)") !default;
-$layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)") !default;
-
-// Tabs
-$layout-header-tab-highlight: unquote("rgb(#{$color-accent})") !default;
 
 /* ==========  Content Tabs  ========== */
 
@@ -204,36 +179,6 @@ $list-container-height: 500px !default;
 $list-container-width: 400px !default;
 $list-container-item-height: 70px !default;
 // $list__item-hover-color: unquote("rgb(#{$palette-grey-300})") !default;
-
-/* LAYOUT */
-
-$layout-nav-link-font-size: 13px !default;
-
-$layout-drawer-narrow: 240px !default;
-$layout-drawer-wide: 456px !default;
-$layout-drawer-width: $layout-drawer-narrow !default;
-
-$layout-header-icon-size: 32px !default;
-$layout-screen-size-threshold: 1024px !default;
-$layout-header-icon-margin: 24px !default;
-$layout-drawer-button-mobile-size: 32px !default;
-$layout-drawer-button-desktop-size: 48px !default;
-
-$layout-header-mobile-row-height: 56px !default;
-$layout-mobile-header-height: $layout-header-mobile-row-height;
-$layout-header-desktop-row-height: 64px !default;
-$layout-desktop-header-height: $layout-header-desktop-row-height;
-
-$layout-header-desktop-baseline: 80px !default;
-$layout-header-mobile-baseline: 72px !default;
-$layout-header-mobile-indent: 16px !default;
-$layout-header-desktop-indent: 40px !default;
-
-$layout-tab-font-size: 14px !default;
-$layout-tab-bar-height: 48px !default;
-$layout-tab-mobile-padding: 12px !default;
-$layout-tab-desktop-padding: 24px !default;
-$layout-tab-highlight-thickness: 2px !default;
 
 /* CHECKBOX */
 
