@@ -4,6 +4,8 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import * as config from './config.babel';
 import through from 'through2';
 import strip from 'gulp-strip-comments';
+import bemLinter from 'postcss-bem-linter';
+
 
 const $ = gulpLoadPlugins();
 
@@ -16,6 +18,12 @@ export function cssPipeline(stream, dest = 'dist') {
     }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
     .pipe($.autoprefixer(config.AUTOPREFIXER_BROWSERS))
+    .pipe($.postcss([
+      bemLinter(
+        'bem', {
+        namespace: 'mdl'
+      })
+    ]))
     .pipe($.stripCssComments())
     .pipe($.header(config.BANNER, {pkg}))
     .pipe($.sourcemaps.write('.'))

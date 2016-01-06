@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/** @define appbar */
+
 .mdl-appbar {
   height: rem(56px);
   display: flex;
@@ -84,19 +86,19 @@
     }
   }
 
-  &--fixed {
+  &_fixed {
     position: fixed;
     top: 0;
     width: 100%;
   }
 
-  &--fixed-drawer {
+  &_fixed-drawer {
     @media(min-width: $mdl-desktop-breakpoint) {
       margin-left: rem(240px);
       right: 0;
       width: auto;
 
-      &.mdl-appbar--fixed {
+      .mdl-appbar_fixed {
         left: rem(240px);
         margin-left: 0;
       }
@@ -111,9 +113,11 @@
     }
   }
 
-  &--clipped-drawer.mdl-appbar--clipped-drawer {
+  &_clipped-drawer {
     width: 100%;
     margin-left: 0;
     left: 0;
   }
 }
+
+/** @end */
