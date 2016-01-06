@@ -97,6 +97,11 @@ export function clean() {
   ]);
 }
 
+export function demos() {
+  // Just move demo resources into dist/demos.
+  return gulp.src('demos/*').pipe(gulp.dest('dist/demos'));
+}
+
 export function mochaClosure() {
   return gulp.src('test/index.html')
     .pipe($.replace('src="../dist/material.js"',

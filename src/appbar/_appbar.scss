@@ -95,8 +95,11 @@
   &_fixed {
     position: fixed;
     top: 0;
-    width: 100%;
-    margin-left: rem(240px);
+    left: 0;
+    right: 0;
+    @media(min-width: $mdl-desktop-breakpoint) {
+      margin-left: rem(240px);
+    }
   }
 
   &_non-fixed-drawer {

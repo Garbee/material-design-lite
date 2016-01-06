@@ -32,7 +32,11 @@ gulp.task('styles', gulp.parallel(
   tasks.mdlGridStyle
 ));
 
-gulp.task('test:styles', tasks.lintBemStructure);
+gulp.task('demos', gulp.parallel(
+  tasks.mdlCss,
+  tasks.mdlJs,
+  tasks.demos
+));
 
 gulp.task('scripts', gulp.series(
   tasks.jslint,
