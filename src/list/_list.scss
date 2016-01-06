@@ -23,7 +23,10 @@ $mdl-list-supporting-text-text-color: rgba($color-black, 0.54);
   font-family: $performance_font;
 
   &__item {
-    @include typo-body-1();
+    font-size: rem(14px);
+    font-weight: 400;
+    line-height: rem(24px);
+    letter-spacing: 0;
     display: flex;
     box-sizing: border-box;
     height: rem(48px);
