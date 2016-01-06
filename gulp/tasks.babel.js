@@ -43,14 +43,6 @@ export function mdlJs() {
   return util.jsPipeline(stream, 'dist');
 }
 
-// Compile and Automatically Prefix Stylesheets (production)
-export function mdlThemeTemplate() {
-  const stream = gulp.src('src/template.scss')
-    .pipe($.rename('material.template.css'));
-
-  return util.cssPipeline(stream);
-}
-
 // Build with Google's Closure Compiler, requires Java 1.7+ installed.
 export function mdlClosureJs() {
   return gulp.src(config.SOURCES)
