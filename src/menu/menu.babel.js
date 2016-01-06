@@ -53,6 +53,38 @@ class MaterialMenu {
         }
       });
     })();
+    this.element_.setAttribute('aria-hidden', 'true');
+    this.boundKeyDownHandler_ = this.handleKeyPressEvent_.bind(this);
+    this.element_.addEventListener('keydown', this.boundKeyDownHandler_);
+    this.setupRoles_();
+  }
+
+  /**
+   * Setup aria roles for improved accessibility.
+   *
+   * @private
+   */
+  setupRoles_() {
+    if (!this.element_.hasAttribute('role')) {
+      this.element_.setAttribute('role', 'menu');
+    }
+    let items = this.element_.querySelectorAll('.' + this.CssClasses_.ITEM);
+    Array.prototype.forEach.call(items, item => {
+      if (!item.hasAttribute('role')) {
+        item.setAttribute('role', 'menuitem');
+      }
+    });
+  }
+
+  handleKeyPressEvent_(event) {
+    switch (event.keyCode) {
+      // esc
+      case 27:
+        this.close();
+        break;
+      default:
+        break;
+    }
   }
 
   /**
@@ -104,6 +136,8 @@ class MaterialMenu {
     }
     this.positionMenu_(event);
     this.element_.classList.add(this.CssClasses_.IS_VISIBLE);
+    this.element_.setAttribute('aria-hidden', 'false');
+    this.element_.firstElementChild.focus();
   }
 
   /**
@@ -112,6 +146,7 @@ class MaterialMenu {
    */
   close() {
     this.element_.classList.remove(this.CssClasses_.IS_VISIBLE);
+    this.element_.setAttribute('aria-hidden', 'true');
   }
 
   /**
@@ -122,8 +157,8 @@ class MaterialMenu {
     if (!event) {
       throw new Error('An event object must be supplied to toggle a menu.');
     }
-    if (this.classList.contains(this.CssClasses_.IS_VISIBLE)) {
-      this.hide();
+    if (this.element_.classList.contains(this.CssClasses_.IS_VISIBLE)) {
+      this.close();
       return;
     }
     this.show(event);
