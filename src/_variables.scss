@@ -25,7 +25,6 @@
  * -----Switch
  * -----Spinner
  * -----Radio
- * -----Menu
  * -----List
  * -----Layout
  * -----Icon toggles
@@ -161,10 +160,6 @@ $default-item-divider-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 // Disabled Button Colors
 $disabled-item-text-color: unquote("rgb(#{$palette-grey-400})") !default;
 
-/* ==========  Dropdown menu ========== */
-
-$default-dropdown-bg-color: unquote("rgb(#{$color-white})") !default;
-
 /* SWITCH */
 
 $switch-label-font-size: 16px !default;
@@ -202,12 +197,6 @@ $radio-inner-margin: $radio-button-size / 4;
 $radio-padding: 8px !default;
 $radio-top-offset: ($radio-label-height - $radio-button-size) / 2;
 $radio-ripple-size: 42px !default;
-
-
-/* MENU */
-
-$menu-expand-duration: 0.3s !default;
-$menu-fade-duration: 0.2s !default;
 
 /* LIST */
 

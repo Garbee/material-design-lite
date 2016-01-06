@@ -23,6 +23,7 @@ export const AUTOPREFIXER_BROWSERS = [
 
 export const SOURCES = [
   'src/drawer/drawer.babel.js',
+  'src/menu/menu.babel.js',
   'src/snackbar/snackbar.babel.js',
   'src/textfield/textfield.babel.js',
   'src/icon-toggle/icon-toggle.babel.js',
