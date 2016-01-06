@@ -7,7 +7,6 @@ import * as util from './util.babel';
 import del from 'del';
 import path from 'path';
 import fs from 'fs';
-import strip from 'gulp-strip-comments';
 
 // Lint JavaScript
 export function jslint() {
@@ -25,12 +24,16 @@ export function images() {
     .pipe(gulp.dest('dist/images'));
 }
 
-// Compile and Automatically Prefix Stylesheets (production)
 export function mdlCss() {
   const stream = gulp.src('src/material-design-lite.scss')
     .pipe($.rename('material.css'));
 
   return util.cssPipeline(stream);
+}
+
+export function mdlJs() {
+  let stream = gulp.src(config.SOURCES);
+  return util.jsPipeline(stream, 'dist');
 }
 
 // Compile and Automatically Prefix Stylesheets (production)
@@ -57,43 +60,35 @@ export function mdlClosureJs() {
     .pipe(gulp.dest('./dist'));
 }
 
-// Concatenate And Minify JavaScript
-export function mdlJs() {
-  return gulp.src(config.SOURCES)
-    .pipe($.sourcemaps.init())
-    .pipe(strip())
-    .pipe($.replace(new RegExp("export default (Material)([a-zA-Z]+);", "g"), ''))
-    // Transpile with babel
-    .pipe($.babel())
-      // Clean up duplicate methods
-    .pipe($.replace(config.BABEL.classCallCheck, ''))
-    .pipe($.replace(config.BABEL.createClassFunction, ''))
-    .pipe($.replace('\'use strict\';', ''))
-    // Concatenate Scripts
-    .pipe($.concat('material.js'))
-    .pipe($.insert.prepend(config.BABEL.createClassFunction + '\n'))
-    .pipe($.insert.prepend(config.BABEL.classCallCheck + '\n'))
-    .pipe($.insert.prepend('\'use strict\';\n'))
-    .pipe($.header(config.BANNER, {pkg}))
-    .pipe(gulp.dest('dist'))
-    // Write Source Maps
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('dist'));
+export function packageScripts() {
+  let stream = gulp.src(config.SOURCES);
+  return util.jsPipeline(stream, 'mdl');
 }
 
-// Copy package manger and LICENSE files to dist
-export function metadata() {
-  return gulp.src([
-      'package.json',
-      'bower.json',
-      'LICENSE'
-    ])
-    .pipe(gulp.dest('dist'));
+export function packageStyles() {
+  const stream = gulp.src('src/material-design-lite.scss')
+    .pipe($.rename('material.css'));
+
+  return util.cssPipeline(stream, 'mdl');
+}
+
+// TODO: Update image paths in final CSS to match root/images
+export function packageImages() {
+  return gulp.src('src/**/*.{svg,png,jpg}')
+    .pipe($.flatten())
+    .pipe(gulp.dest('mdl/images'));
 }
 
 export function mocha() {
   return gulp.src('test/index.html')
     .pipe($.mochaPhantomjs({reporter: 'tap'}));
+}
+
+export function clean() {
+  return del([
+    'dist',
+    'mdl'
+  ]);
 }
 
 export function mochaClosure() {

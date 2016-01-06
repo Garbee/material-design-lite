@@ -25,11 +25,13 @@ import * as tasks from './gulp/tasks.babel';
 import browserSync from 'browser-sync';
 const reload = browserSync.reload;
 
+gulp.task('clean', tasks.clean);
+
 gulp.task('styles', gulp.parallel(
   tasks.mdlCss
 ));
 
-gulp.task('scripts', gulp.parallel(
+gulp.task('scripts', gulp.series(
   tasks.jslint,
   tasks.mdlJs
 ));
@@ -41,7 +43,13 @@ gulp.task('test', gulp.series(
 gulp.task('closure', gulp.series(tasks.mdlClosureJs));
 
 gulp.task('default', gulp.series(
-  gulp.parallel('styles', 'scripts', tasks.images, tasks.metadata)
+  'clean',
+  gulp.parallel('styles', 'scripts', tasks.images)
+));
+
+gulp.task('package', gulp.series(
+  'clean',
+  gulp.parallel(tasks.packageStyles, tasks.packageScripts, tasks.packageImages)
 ));
 
 gulp.task('serve', () => {
@@ -55,5 +63,4 @@ gulp.task('serve', () => {
   gulp.watch(['src/**/*.js'], gulp.series('scripts', reload));
   gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', reload));
   gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series(tasks.images, reload));
-  gulp.watch(['package.json', 'bower.json', 'LICENSE'], gulp.series(tasks.metadata));
 });
