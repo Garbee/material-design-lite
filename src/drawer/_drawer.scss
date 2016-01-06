@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+/* @define drawer */
+
 .mdl-drawer {
   width: rem(240px);
   transform: translateX(rem(-250px));
@@ -38,6 +40,23 @@
   @include shadow-2dp();
   box-sizing: border-box;
   border-right: rem(1px) solid $palette-grey-300;
+
+  @media(min-width: $mdl-desktop-breakpoint) {
+    transform: translateX(0);
+
+    & + .mdl-drawer__backdrop {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.mdl-drawer_clipped {
+      margin-top: rem(56px);
+
+      @media(min-width: $mdl-desktop-breakpoint) {
+        margin-top: rem(64px);
+      }
+    }
+  }
 
   span.mdl-drawer__divider {
     width: 100%;
@@ -100,39 +119,12 @@
         }
       }
 
-      &--active.mdl-drawer__navigation-item--active {
+      &_active.mdl-drawer__navigation-item_active {
         color: $color-primary;
         background-color: $palette-grey-400;
 
         & a {
           color: $color-primary;
-        }
-      }
-    }
-  }
-
-  &--visible {
-    transform: translateX(0);
-    & + .mdl-drawer__backdrop.mdl-drawer__backdrop {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
-
-  &--fixed {
-    @media(min-width: $mdl-desktop-breakpoint) {
-      transform: translateX(0);
-
-      & + .mdl-drawer__backdrop {
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-
-      &.mdl-drawer--clipped {
-        margin-top: rem(56px);
-
-        @media(min-width: $mdl-desktop-breakpoint) {
-          margin-top: rem(64px);
         }
       }
     }
@@ -150,5 +142,35 @@
     z-index: 3;
     opacity: 0;
     pointer-events: none;
+
+    @media(min-width: $mdl-desktop-breakpoint) {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  }
+
+  &_non-fixed {
+    @media(min-width: $mdl-desktop-breakpoint) {
+      transform: translateX(rem(-250px));
+
+      &.mdl-drawer_visible {
+        transform: translateX(0);
+
+        & + .mdl-drawer__backdrop {
+          opacity: 1 !important;
+          pointer-events: auto !important;
+        }
+      }
+    }
+  }
+
+  &_visible {
+    transform: translateX(0);
+    & + .mdl-drawer__backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
+
+/* @end */

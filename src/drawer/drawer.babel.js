@@ -27,7 +27,7 @@ class MaterialDrawer {
   constructor(element) {
     this.element_ = element;
     this.cssClasses_ = {
-      VISIBLE: 'mdl-drawer--visible',
+      VISIBLE: 'mdl-drawer_visible',
       BACKDROP: 'mdl-drawer__backdrop'
     };
     var backdropFound = false;

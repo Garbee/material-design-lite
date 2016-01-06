@@ -14,10 +14,19 @@
  * limitations under the License.
  */
 
+/* @define content */
+
 .mdl-content {
   display: block;
+  transition: margin-left 200ms linear;
 
-  .mdl-appbar--fixed ~ & {
+  @media(min-width: $mdl-desktop-breakpoint) {
+    margin: {
+      left: rem(250px);
+    }
+  }
+
+  .mdl-appbar_fixed ~ & {
     margin: {
       top: rem(56px);
     }
@@ -29,11 +38,13 @@
     }
   }
 
-  .mdl-drawer--fixed ~ & {
+  .mdl-drawer_non-fixed ~ & {
     @media(min-width: $mdl-desktop-breakpoint) {
       margin: {
-        left: rem(250px);
+        left: 0;
       }
     }
   }
 }
+
+/* @end */

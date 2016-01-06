@@ -22,9 +22,16 @@
   flex-direction: row;
   flex-wrap: nowrap;
   background-color: $color-white;
+  color: rgba($color-black, 0.54);
+  margin-left: 0;
+  @include shadow-2dp();
 
   @media(min-width: $mdl-desktop-breakpoint) {
+    margin-left: rem(240px);
     height: rem(64px);
+    &__drawer-toggle {
+      display: none;
+    }
   }
 
   &__row {
@@ -41,7 +48,6 @@
 
   &__drawer-toggle,
   &__action {
-    color: white;
     align-self: center;
     background: transparent;
     border: none;
@@ -61,9 +67,9 @@
   &__title {
     align-self: center;
     margin-right: auto;
-    margin-left: rem(24px);
+    margin-left: rem(12px);
     &-text {
-      color: white;
+      color: rgba($color-black, 0.87);
       font-size: rem(16px);
       &:active,
       &:focus {
@@ -90,25 +96,24 @@
     position: fixed;
     top: 0;
     width: 100%;
+    margin-left: rem(240px);
   }
 
-  &_fixed-drawer {
+  &_non-fixed-drawer {
     @media(min-width: $mdl-desktop-breakpoint) {
-      margin-left: rem(240px);
+      margin-left: 0;
       right: 0;
-      width: auto;
 
       .mdl-appbar_fixed {
-        left: rem(240px);
-        margin-left: 0;
+        left: 0;
       }
 
       .mdl-appbar__drawer-toggle {
-        display: none;
+        display: block;
       }
 
       .mdl-appbar__title {
-        margin-left: rem(12px);
+        margin-left: rem(24px);
       }
     }
   }
@@ -121,6 +126,7 @@
 
   &_colored {
     background-color: $color-primary;
+    color: $color-white;
   }
 }
 
