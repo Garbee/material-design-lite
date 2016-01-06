@@ -31,6 +31,13 @@ export function mdlCss() {
   return util.cssPipeline(stream);
 }
 
+export function mdlGridStyle() {
+  const stream = gulp.src('src/material-design-lite-grid.scss')
+    .pipe($.rename('material-design-lite-grid.css'));
+
+  return util.cssPipeline(stream);
+}
+
 export function mdlJs() {
   let stream = gulp.src(config.SOURCES);
   return util.jsPipeline(stream, 'dist');
@@ -68,6 +75,13 @@ export function packageScripts() {
 export function packageStyles() {
   const stream = gulp.src('src/material-design-lite.scss')
     .pipe($.rename('material.css'));
+
+  return util.cssPipeline(stream, 'mdl');
+}
+
+export function packageGridStyle() {
+  const stream = gulp.src('src/material-design-lite-grid.scss')
+    .pipe($.rename('material-design-lite-grid.css'));
 
   return util.cssPipeline(stream, 'mdl');
 }

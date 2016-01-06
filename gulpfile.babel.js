@@ -28,7 +28,8 @@ const reload = browserSync.reload;
 gulp.task('clean', tasks.clean);
 
 gulp.task('styles', gulp.parallel(
-  tasks.mdlCss
+  tasks.mdlCss,
+  tasks.mdlGridStyle
 ));
 
 gulp.task('scripts', gulp.series(
@@ -49,7 +50,11 @@ gulp.task('default', gulp.series(
 
 gulp.task('package', gulp.series(
   'clean',
-  gulp.parallel(tasks.packageStyles, tasks.packageScripts, tasks.packageImages)
+  gulp.parallel(
+    tasks.packageStyles,
+    tasks.packageScripts,
+    tasks.packageGridStyle,
+    tasks.packageImages)
 ));
 
 gulp.task('serve', () => {
