@@ -8,5 +8,8 @@
     "dot-notation": 0,
     "no-inline-comments": 0,
     "no-warning-comments": 0
+  },
+  "env": {
+    "browser": true
   }
 }
