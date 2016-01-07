@@ -67,7 +67,7 @@ gulp.task('serve', () => {
   browserSync({
     notify: false,
     server: {
-      baseDir: ['.']
+      baseDir: ['dist']
     }
   });
 
