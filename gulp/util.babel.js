@@ -12,12 +12,7 @@ const $ = gulpLoadPlugins();
 export function cssPipeline(stream, dest = 'dist') {
   return stream
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      precision: 10,
-      onError: console.error.bind(console, 'Sass error:')
-    }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
-    .pipe($.autoprefixer(config.AUTOPREFIXER_BROWSERS))
     .pipe($.postcss([
       bemLinter(
         'bem', {
