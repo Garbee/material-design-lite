@@ -42,10 +42,18 @@
   @media(--tablet-viewport) {
     width: 320px;
     transform: translateX(-330px);
+
+    &_visible {
+      transform: translateX(0);
+    }
   }
 
   @media(--desktop-viewport) {
     transform: translateX(0);
+
+    &_temporary:not(.mdl-drawer_visible) {
+       transform: translateX(-330px);
+     }
   }
 
   &__divider {
@@ -97,8 +105,6 @@
 
     &-item {
       height: 48px;
-      padding-left: 16px;
-      padding-right: 16px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -107,11 +113,10 @@
       color: color(var(--color-black) a(87%));
       text-decoration: none;
       flex: 0 1 100%;
-
-      @media (--desktop-viewport) {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      cursor: pointer;
    }
 
     &-link {
@@ -123,16 +128,52 @@
       flex: 0 1 100%;
       height: 100%;
       align-items: center;
+       padding-left: 16px;
+       padding-right: 16px;
+
+     @media(--desktop-viewport) {
+       padding-left: 24px;
+       padding-right: 24px;
+     }
 
       & > .material-icons {
         pointer-events: none;
         padding-right: 42px;
+        color: color(var(--color-black) a(54%));
 
         @media(--desktop-viewport) {
           padding-right: 34px;
         }
       }
     }
+
+    &-item_active {
+       & .mdl-drawer__navigation-link {
+       color: var(--color-primary);
+       background-color: var(--palette-grey-400);
+       & .material-icons {
+           color: var(--color-primary);
+         }
+     }
+     }
+  }
+
+  @nest & + &__backdrop {
+    background-color: color(var(--color-black) a(50%));
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &_visible {
+    transform: translateX(0);
   }
 
   @media print {
@@ -140,3 +181,19 @@
   }
 }
 /* @end */
+
+.mdl-drawer_visible + .mdl-drawer__backdrop {
+  opacity: 1;
+  pointer-events: auto;
+
+  @media(--desktop-viewport) {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* postcss-bem-linter: ignore */
+.mdl-drawer_visible.mdl-drawer_temporary + .mdl-drawer__backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}

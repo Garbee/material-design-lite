@@ -32,21 +32,23 @@
 /* postcss-bem-linter: ignore */
 .mdl-appbar_fixed ~ .mdl-content {
   margin-top: 56px;
+}
 
-  @media print {
+@media print {
+  /* postcss-bem-linter: ignore */
+  .mdl-appbar_fixed ~ .mdl-content {
     margin-top: 0;
   }
 }
 
 @media (--desktop-viewport) {
-
   /* postcss-bem-linter: ignore */
   .mdl-appbar_fixed ~ .mdl-content {
     margin-top: 64px;
   }
 
   /* postcss-bem-linter: ignore */
-  .mdl-drawer_non-fixed ~ .mdl-content {
+  .mdl-drawer_temporary ~ .mdl-content {
     margin-left: 0;
   }
 }

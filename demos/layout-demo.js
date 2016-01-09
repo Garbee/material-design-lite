@@ -19,20 +19,14 @@ document.querySelector('.mdl-drawer__backdrop').addEventListener('click', functi
 
 var appbar = document.querySelector('.mdl-appbar');
 var drawerElement = document.querySelector('.mdl-drawer');
-var clippedToggleButton = document.querySelector('#clipped-toggle');
 var fixedAppbarToggle = document.querySelector('#fixed-appbar-toggle');
 var fixedDrawerToggle = document.querySelector('#fixed-drawer-toggle');
-
-clippedToggleButton.addEventListener('click', function() {
-  drawerElement.classList.toggle('mdl-drawer_clipped');
-  appbar.classList.toggle('mdl-appbar_clipped-drawer');
-});
 
 fixedAppbarToggle.addEventListener('click', function() {
   appbar.classList.toggle('mdl-appbar_fixed');
 });
 
 fixedDrawerToggle.addEventListener('click', function() {
-  appbar.classList.toggle('mdl-appbar_non-fixed-drawer');
-  drawerElement.classList.toggle('mdl-drawer_non-fixed');
+  appbar.classList.toggle('mdl-appbar_temporary-drawer');
+  drawerElement.classList.toggle('mdl-drawer_temporary');
 });
