@@ -20,7 +20,11 @@
   transition: margin-left 200ms linear;
 
   @media(--desktop-viewport) {
-    margin-left: 250px;
+    margin-left: 320px;
+  }
+
+  @media print {
+    margin-left: 0;
   }
 }
 /* @end */
@@ -28,6 +32,10 @@
 /* postcss-bem-linter: ignore */
 .mdl-appbar_fixed ~ .mdl-content {
   margin-top: 56px;
+
+  @media print {
+    margin-top: 0;
+  }
 }
 
 @media (--desktop-viewport) {
