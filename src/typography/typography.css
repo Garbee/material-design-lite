@@ -1,0 +1,138 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* postcss-bem-linter: define typography */
+.mdl-typography {
+  &__display-4 {
+    font-family: var(--performance-font);
+    font-size: 112px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.04em;
+
+    &_contrast {
+      opacity: 0.54;
+    }
+  }
+
+  &__display-3 {
+     font-family: var(--performance-font);
+     font-size: 56px;
+     font-weight: 400;
+     line-height: 1.35;
+     letter-spacing: -0.02em;
+
+     &_contrast {
+       opacity: 0.54;
+     }
+  }
+
+  &__display-2 {
+     font-family: var(--performance-font);
+     font-size: 45px;
+     font-weight: 400;
+     line-height: 48px;
+
+     &_contrast {
+       opacity: 0.54;
+     }
+  }
+
+  &__display-1 {
+     font-family: var(--performance-font);
+     font-size: 34px;
+     font-weight: 400;
+     line-height: 40px;
+
+     &_contrast {
+       opacity: 0.54;
+     }
+  }
+
+  &__headline {
+     font-family: var(--performance-font);
+     font-size: 24px;
+     font-weight: 400;
+     line-height: 32px;
+     -moz-osx-font-smoothing: grayscale;
+
+     &_contrast {
+       opacity: 0.87;
+     }
+  }
+
+  &__title {
+     font-family: var(--performance-font);
+     font-size: 20px;
+     font-weight: 500;
+     line-height: 1;
+     letter-spacing: 0.02em;
+
+     &_contrast {
+       opacity: 0.87;
+     }
+  }
+
+  &__subhead {
+     font-family: var(--performance-font);
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+     letter-spacing: 0.04em;
+
+    &_contrast {
+      opacity: 0.87;
+    }
+  }
+
+  &__body-2 {
+     font-family: var(--performance-font);
+     font-size: 14px;
+     font-weight: 500;
+     line-height: 24px;
+     letter-spacing: 0.04em;
+
+     &_contrast {
+       opacity: 0.87;
+    }
+  }
+
+  &__body-1 {
+     font-family: var(--performance-font);
+     font-size: 14px;
+     font-weight: 400;
+     line-height: 24px;
+     letter-spacing: 0;
+
+     &_contrast {
+        opacity: 0.87;
+     }
+  }
+
+  &__caption {
+     font-family: var(--performance-font);
+     font-size: 12px;
+     font-weight: 400;
+     line-height: 1;
+     letter-spacing: 0;
+
+    &_contrast {
+      opacity: 0.54;
+    }
+  }
+}
+
+/* @end */

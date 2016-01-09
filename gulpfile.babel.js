@@ -28,8 +28,8 @@ const reload = browserSync.reload;
 gulp.task('clean', tasks.clean);
 
 gulp.task('styles', gulp.parallel(
-  tasks.mdlCss,
-  tasks.mdlGridStyle
+  tasks.mdlCss
+  //tasks.mdlGridStyle
 ));
 
 gulp.task('demos', gulp.parallel(

@@ -16,17 +16,7 @@
 
 /* Material Design Lite */
 
-// Variables and mixins
-@import "globalvars";
-@import "functions";
-@import "mixins";
-
-// Resets and dependencies
-@import "resets/resets";
-@import "typography/typography";
-
 // Components
-@import "palette/palette";
 @import "appbar/appbar";
 //@import "ripple/ripple";
 @import "badge/badge";

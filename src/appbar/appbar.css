@@ -14,25 +14,27 @@
  * limitations under the License.
  */
 
-/** @define appbar */
-
+/* postcss-bem-linter: define appbar */
 .mdl-appbar {
-  height: rem(56px);
+  height: 56px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  background-color: $color-white;
-  color: rgba($color-black, 0.54);
+  background-color: var(--color-white);
+  color: color(var(--color-black) a(54%));
   margin-left: 0;
-  @include shadow-2dp();
+  @mixin shadow-2dp;
 
-  @media(min-width: $mdl-desktop-breakpoint) {
-    margin-left: rem(240px);
-    height: rem(64px);
-    &__drawer-toggle {
-      display: none;
+
+    @media (--desktop-viewport) {
+      margin-left: 240px;
+      height: 64px;
+
+      &__drawer-toggle {
+       display: none;
+     }
     }
-  }
+
 
   &__row {
     display: flex;
@@ -41,8 +43,8 @@
     justify-content: space-between;
     width: 100%;
 
-    > .mdl-appbar__drawer-toggle + .mdl-appbar__title {
-      margin-left: rem(12px);
+    & > .mdl-appbar__drawer-toggle + .mdl-appbar__title {
+      margin-left: 12px;
     }
   }
 
@@ -52,43 +54,47 @@
     background: transparent;
     border: none;
     margin: 0;
-    padding: rem(16px);
+    padding: 16px;
     color: inherit;
 
     &:active,
     &:focus {
-      outline-color: $color-accent;
+       outline-color: var(--color-accent);
     }
 
-    @media(min-width: $mdl-desktop-breakpoint) {
-      padding: rem(20px);
+     & > * {
+       pointer-events: none;
+     }
+
+    @media(--desktop-viewport) {
+      padding: 20px;
     }
   }
 
   &__title {
     align-self: center;
     margin-right: auto;
-    margin-left: rem(12px);
+    margin-left: 12px;
     &-text {
-      font-size: rem(16px);
-      color: rgba($color-black, 0.80);
+      font-size: 16px;
+      color: rgba(var(--color-black) a(80%));
       &:active,
       &:focus {
-        outline-color: $color-accent;
+        outline-color: var(--color-accent);
       }
     }
   }
 
   &__actions {
     align-self: flex-end;
-    @media(min-width: $mdl-tablet-breakpoint) {
+    @media(--tablet-viewport) {
       &:last-child {
-        margin-right: rem(16px);
+        margin-right: 16px;
       }
     }
-    @media(min-width: $mdl-desktop-breakpoint) {
+    @media(--desktop-viewport) {
       &:last-child {
-        margin-right: rem(24px);
+        margin-right: 24px;
       }
     }
   }
@@ -98,26 +104,26 @@
     top: 0;
     left: 0;
     right: 0;
-    @media(min-width: $mdl-desktop-breakpoint) {
-      margin-left: rem(240px);
+    @media(--desktop-viewport) {
+      margin-left: 240px;
     }
   }
 
   &_non-fixed-drawer {
-    @media(min-width: $mdl-desktop-breakpoint) {
+    @media(--desktop-viewport) {
       margin-left: 0;
       right: 0;
 
-      .mdl-appbar_fixed {
+       & .mdl-appbar_fixed {
         left: 0;
       }
 
-      .mdl-appbar__drawer-toggle {
+      & .mdl-appbar__drawer-toggle {
         display: block;
       }
 
-      .mdl-appbar__title {
-        margin-left: rem(24px);
+      & .mdl-appbar__title {
+        margin-left: 24px;
       }
     }
   }
@@ -129,20 +135,13 @@
   }
 
   &_colored {
-    background-color: $color-primary;
-    color: $color-white;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 
-    .mdl-appbar__title .mdl-appbar__title-text {
-      color: $color-white;
+    & .mdl-appbar__title .mdl-appbar__title-text {
+      color: var(--color-white);
     }
   }
 }
 
-// Have to move this out of the main flow so the linter comment works.
-/* postcss-bem-linter: ignore */
-.mdl-appbar__drawer-toggle *,
-.mdl-appbar__action * {
-  pointer-events: none;
-}
-
-/** @end */
+/* @end */

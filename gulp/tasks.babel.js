@@ -25,7 +25,7 @@ export function images() {
 }
 
 export function mdlCss() {
-  const stream = gulp.src('src/material-design-lite.scss')
+  const stream = gulp.src('src/mdl.css')
     .pipe($.rename('material.css'));
 
   return util.cssPipeline(stream);

@@ -1,0 +1,72 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import 'color-definitions.css';
+
+:root {
+    /* ==========  Colors  ========== */
+
+    /* Use color primarily for emphasis. Choose colors that fit with
+       your brand and provide good contrast between visual components. */
+    --color-primary: var(--palette-indigo-500);
+    --color-primary-dark: var(--palette-indigo-700);
+    --color-accent: var(--palette-pink-A200);
+
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+
+    /* The two possible colors for overlayed text */
+    --color-dark-contrast: var(--color-white);
+    --color-light-contrast: var(--color-black);
+
+    --color-primary-contrast: var(--color-dark-contrast);
+    --color-accent-contrast: var(--color-dark-contrast);
+
+    /* ==========  TYPOGRAPHY  ========== */
+
+    /* We're splitting fonts into "preferred" and "performance" in order to optimize
+       page loading. For important text, such as the body, we want it to load
+       immediately and not wait for the web font load, whereas for other sections,
+       such as headers and titles, we're OK with things taking a bit longer to load.
+       We do have some optional classes and parameters in the mixins, in case you
+       definitely want to make sure you're using the preferred font and don't mind
+       the performance hit.
+       We should be able to improve on this once CSS Font Loading L3 becomes more
+       widely available.
+    */
+
+    --preferred-font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    --performance-font: 'Helvetica', 'Arial', sans-serif;
+
+    --text-color-primary: color(var(--color-black) a(87%));
+    --text-link-color: var(--color-accent);
+
+    /* ==========  Animations  ========== */
+    --mdl-default-animation-duration: 200ms;
+
+    /* ==========  Breakpoints  ========== */
+
+    /*
+      Defines the breakpoints for tablets and desktops.
+      Per Responsive Web Design, build for mobile first
+      and react to larger devices.
+    */
+    @custom-media --tablet-viewport (min-width: 480px);
+    @custom-media --desktop-viewport (min-width: 840px);
+}
+
+
+

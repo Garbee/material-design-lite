@@ -9,3 +9,4 @@ gulp
 gulpfile.babel.js
 .idea
 .sublime-workspace
+browserslist
