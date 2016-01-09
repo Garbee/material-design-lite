@@ -135,4 +135,12 @@
   }
 }
 
+/**
+  Defined here so the font can be retrieved before MDL CSS.
+  And any text modifications on ligatures we do won't affect fonts.
+*/
+.material-icons {
+@mixin typo-icon;
+}
+
 /* @end */

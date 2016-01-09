@@ -17,14 +17,7 @@
 @import 'variables.css';
 @import 'mixins.css';
 
-/**
-  Defined here so the font can be retrieved before MDL CSS.
-  And any text modifications on ligatures we do won't affect fonts.
-*/
-.material-icons {
-@mixin typo-icon;
-}
-
 @import 'typography/typography.css';
 @import 'palette/palette.css';
 @import 'appbar/appbar.css';
+@import 'content/content.css';

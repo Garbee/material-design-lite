@@ -49,7 +49,7 @@ export function cssPipeline(stream, dest = 'dist') {
           },
           componentName: /[a-z -]/,
           ignoreSelectors: [
-            /\.material-icons/g,
+            new RegExp('\.material-icons'),
             /\*/
           ]
         }),

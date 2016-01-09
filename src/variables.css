@@ -67,6 +67,3 @@
     @custom-media --tablet-viewport (min-width: 480px);
     @custom-media --desktop-viewport (min-width: 840px);
 }
-
-
-

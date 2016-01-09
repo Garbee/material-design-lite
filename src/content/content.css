@@ -14,37 +14,31 @@
  * limitations under the License.
  */
 
-/* @define content */
-
+/* postcss-bem-linter: define content */
 .mdl-content {
   display: block;
   transition: margin-left 200ms linear;
 
-  @media(min-width: $mdl-desktop-breakpoint) {
-    margin: {
-      left: rem(250px);
-    }
-  }
-
-  .mdl-appbar_fixed ~ & {
-    margin: {
-      top: rem(56px);
-    }
-
-    @media(min-width: $mdl-desktop-breakpoint) {
-      margin: {
-        top: rem(64px);
-      }
-    }
-  }
-
-  .mdl-drawer_non-fixed ~ & {
-    @media(min-width: $mdl-desktop-breakpoint) {
-      margin: {
-        left: 0;
-      }
-    }
+  @media(--desktop-viewport) {
+    margin-left: 250px;
   }
 }
-
 /* @end */
+
+/* postcss-bem-linter: ignore */
+.mdl-appbar_fixed ~ .mdl-content {
+  margin-top: 56px;
+}
+
+@media (--desktop-viewport) {
+
+  /* postcss-bem-linter: ignore */
+  .mdl-appbar_fixed ~ .mdl-content {
+    margin-top: 64px;
+  }
+
+  /* postcss-bem-linter: ignore */
+  .mdl-drawer_non-fixed ~ .mdl-content {
+    margin-left: 0;
+  }
+}
