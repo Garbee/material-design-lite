@@ -88,6 +88,11 @@
 
   &__actions {
     align-self: flex-end;
+
+     & .mdl-appbar__action {
+       margin-left: 4px;
+       margin-right: 4px;
+     }
     @media(--tablet-viewport) {
       &:last-child {
         margin-right: 16px;

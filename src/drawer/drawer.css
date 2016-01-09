@@ -79,6 +79,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex: 0 0 auto;
 
     @media(--desktop-viewport) {
       padding-left: 24px;
@@ -117,6 +118,8 @@
       background-color: rgba(0, 0, 0, 0);
       border: none;
       cursor: pointer;
+      margin-top: 4px;
+      margin-bottom: 4px;
    }
 
     &-link {
