@@ -35,7 +35,6 @@
     text-transform: uppercase;
     display: inline-block;
     font-size: 14px;
-    line-height: 36px;
     letter-spacing: 0;
     overflow: hidden;
     outline: none;
@@ -49,27 +48,148 @@
     }
 
     @nest &:hover {
-      background-color: color(var(--palette-grey-500) a(20%));
+      background-color: color(var(--palette-grey-500) a(12%));
     }
 
-    @nest &:focus:not(:active) {
-      background-color: color(var(--palette-grey-500) a(40%));
+    @nest &:focus {
+      background-color: color(var(--palette-grey-500) a(12%));
     }
 
     @nest &:active {
-      background-color: color(var(--palette-grey-500) a(40%));
+      background-color: color(var(--palette-grey-500) a(20%));
     }
 
-    @nest &[disabled] {
+    @nest &[disabled],
+      fieldset[disabled] &  {
       color: color(var(--color-black) a(26%));
+      cursor: default;
+
+      @nest &:hover {
+        background-color: transparent;
+      }
     }
 
     @nest &_raised {
       background: color(var(--palette-grey-500) a(20%));
       @mixin shadow-2dp;
 
-      &:active {
-        @mixin shadow-4dp;
+      @media(--desktop-viewport) {
+          box-shadow: none;
+      }
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-black) a(20%));
+        @mixin shadow-2dp;
+      }
+
+      @nest &:active {
+        background: color(var(--palette-grey-500) a(20%));
+        @mixin shadow-8dp;
+      }
+
+      @nest &[disabled],
+      fieldset[disabled] & {
+        color: color(var(--color-black) a(26%));
+        background-color: color(var(--color-black) a(12%));
+        cursor: default;
+
+        @nest &:hover {
+          box-shadow: none;
+          background-color: color(var(--color-black) a(12%));
+        }
+      }
+    }
+
+    @nest &_primary-color-text {
+      color: var(--color-primary);
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-primary) a(12%));
+      }
+
+      @nest &:active {
+        background-color: color(var(--color-primary) a(20%));
+      }
+    }
+
+    @nest &_accent-color-text {
+      color: var(--color-accent);
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-accent) a(12%));
+      }
+
+      @nest &:active {
+        background-color: color(var(--color-accent) a(20%));
+      }
+    }
+
+    @nest &_colored {
+      background-color: color(var(--color-primary) a(80%));
+      color: var(--color-primary-contrast);
+      @mixin shadow-2dp;
+
+      @media(--desktop-viewport) {
+          box-shadow: none;
+      }
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-primary) a(90%));
+        @mixin shadow-2dp;
+      }
+
+      @nest &:active {
+        background-color: var(--color-primary);
+        @mixin shadow-8dp;
+      }
+
+      @nest &[disabled],
+      fieldset[disabled] & {
+        color: color(var(--color-black) a(26%));
+        background-color: color(var(--color-black) a(12%));
+        cursor: default;
+
+        @nest &:hover {
+          box-shadow: none;
+          background-color: color(var(--color-black) a(12%));
+        }
+      }
+    }
+
+    @nest &_accent-colored {
+      background-color: color(var(--color-accent) a(80%));
+      color: var(--color-accent-contrast);
+      @mixin shadow-2dp;
+
+      @media(--desktop-viewport) {
+          box-shadow: none;
+      }
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-accent) a(90%));
+        @mixin shadow-2dp;
+      }
+
+      @nest &:active {
+        background-color: var(--color-accent);
+        @mixin shadow-8dp;
+      }
+
+      @nest &[disabled],
+      fieldset[disabled] & {
+        color: color(var(--color-black) a(26%));
+        background-color: color(var(--color-black) a(12%));
+        cursor: default;
+
+        @nest &:hover {
+          box-shadow: none;
+          background-color: color(var(--color-black) a(12%));
+        }
       }
     }
 }
