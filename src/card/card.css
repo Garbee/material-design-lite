@@ -64,7 +64,7 @@
        }
      }
 
-    &__subitle-text {
+    &__subtitle-text {
       font-size: 14px;
       color: color(var(--color-black) a(54%));
       margin: 0;
