@@ -20,5 +20,6 @@
 @import 'typography/typography.css';
 @import 'palette/palette.css';
 @import 'appbar/appbar.css';
+@import 'card/card.css';
 @import 'content/content.css';
 @import 'drawer/drawer.css';

@@ -13,7 +13,33 @@
 <link rel="stylesheet" href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <link rel="stylesheet" href="../material.css">
 
-
+<style>
+    .mdl-card__media {
+        background-image: url('http://placehold.it/350x150');
+        height: 120px;
+    }
+    .custom-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .grid-item {
+        margin: 16px;
+        flex: 1 1 calc(50% - 16px);
+    }
+    @media(min-width: 480px) {
+        .grid-item {
+            margin: 16px;
+            flex: 1 1 calc(((3 / 8) * 100% ) - 16px);
+        }
+    }
+    @media(min-width: 840px) {
+        .grid-item {
+            margin: 24px;
+            flex: 1 1 calc(((3/12) * 100%) - 24px);
+        }
+    }
+</style>
 
 <!-- Appbar -->
 <div class="mdl-appbar">
@@ -135,6 +161,126 @@
     <p>
         Demo of full layout stuff in MDL v2. <b>VERY</b> early draft mockup. Nothing final or set in stone. Needs much <i class="material-icons">favorite</i>.
     </p>
+
+    <div class="custom-grid">
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mdl-card grid-item">
+            <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">Card Title</h4>
+            </div>
+            <div class="mdl-card__media"></div>
+            <div class="mdl-card__supporting-text">
+                <p>Lorem Ipsum</p>
+                <ul>
+                    <li>Thing 1</li>
+                    <li>Thing 2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="mush">
         <p>And now for some random gibberish to take up space for demo.</p>
