@@ -50,7 +50,8 @@ export function cssPipeline(stream, dest = 'dist') {
           componentName: /[a-z -]/,
           ignoreSelectors: [
             new RegExp('\.material-icons'),
-            /\*/
+            /\*/,
+            /fieldset\[disabled\]/
           ]
         }),
         postCssReporter({
