@@ -1,0 +1,78 @@
+/*
+ *  Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/* postcss-bem-linter: define badge */
+
+:root {
+    --badge-size: 22px;
+    --badge-padding: 2px;
+    --badge-overlap: 12px;
+}
+
+.mdl-badge {
+    position: relative;
+    white-space: nowrap;
+    margin-right: calc(var(--badge-size) + var(--badge-padding));
+
+    @nest &:not([data-mdl-badge]) {
+      margin-right: auto;
+    }
+
+    @nest &[data-mdl-badge]::after {
+      content: attr(data-mdl-badge);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      position: absolute;
+      top: -calc(var(--badge-size) /2);
+      right: -calc(var(--badge-size) + var(--badge-padding));
+      font-family: var(--preferred-font);
+      font-weight: 600;
+      font-size: 12px;
+      width: var(--badge-size);
+      height: var(--badge-size);
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      color: var(--color-accent-contrast);
+    }
+
+    @nest &_no-background {
+      @nest &[data-mdl-badge]::after {
+        color: var(--color-accent);
+        background-color: transparent;
+        box-shadow: 0 0 1px var(--palette-grey-500);
+     }
+    }
+
+    @nest &_overlap {
+      margin-right: calc(var(--badge-size) - var(--badge-overlap));
+      @nest &:after {
+        right: calc(var(--badge-size) - var(--badge-overlap));
+     }
+     }
+}
+
+/* @end */
+
+/* postcss-bem-linter: ignore */
+.mdl-button .mdl-badge[data-mdl-badge]::after {
+    top: -10px;
+    right: -5px;
+}
