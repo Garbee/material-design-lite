@@ -1,0 +1,77 @@
+/*
+ *  Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/** postcss-bem-linter: define button */
+
+.mdl-button {
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    color: var(--color-black);
+    position: relative;
+    height: 36px;
+    min-width: 88px;
+    /*
+    Add 6 top and bottom padding.
+    Provides 12 total for a 48px high touch area.
+    */
+    padding: 6px 16px;
+    font-family: var(--performance-font);
+    font-weight: 500;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 0;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+
+    @nest &::-moz-focus-inner {
+      border: 0;
+    }
+
+    @nest &:hover {
+      background-color: color(var(--palette-grey-500) a(20%));
+    }
+
+    @nest &:focus:not(:active) {
+      background-color: color(var(--palette-grey-500) a(40%));
+    }
+
+    @nest &:active {
+      background-color: color(var(--palette-grey-500) a(40%));
+    }
+
+    @nest &[disabled] {
+      color: color(var(--color-black) a(26%));
+    }
+
+    @nest &_raised {
+      background: color(var(--palette-grey-500) a(20%));
+      @mixin shadow-2dp;
+
+      &:active {
+        @mixin shadow-4dp;
+      }
+    }
+}
+
+/* @end */
