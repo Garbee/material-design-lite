@@ -93,10 +93,12 @@
         color: color(var(--color-black) a(26%));
         background-color: color(var(--color-black) a(12%));
         cursor: default;
+        box-shadow: none;
 
         @nest &:hover {
           box-shadow: none;
           background-color: color(var(--color-black) a(12%));
+          box-shadow:none;
         }
       }
     }
@@ -152,10 +154,12 @@
         color: color(var(--color-black) a(26%));
         background-color: color(var(--color-black) a(12%));
         cursor: default;
+        box-shadow: none;
 
         @nest &:hover {
           box-shadow: none;
           background-color: color(var(--color-black) a(12%));
+          box-shadow: none;
         }
       }
     }
@@ -185,10 +189,12 @@
         color: color(var(--color-black) a(26%));
         background-color: color(var(--color-black) a(12%));
         cursor: default;
+        box-shadow: none;
 
         @nest &:hover {
           box-shadow: none;
           background-color: color(var(--color-black) a(12%));
+          box-shadow: none;
         }
       }
     }
