@@ -198,6 +198,10 @@
         }
       }
     }
+
+    @nest & .material-icons {
+      vertical-align: middle;
+    }
 }
 
 /* @end */
