@@ -166,7 +166,6 @@
         box-shadow: none;
 
         @nest &:hover {
-          box-shadow: none;
           background-color: color(var(--color-black) a(12%));
           box-shadow: none;
         }
@@ -201,7 +200,6 @@
         box-shadow: none;
 
         @nest &:hover {
-          box-shadow: none;
           background-color: color(var(--color-black) a(12%));
           box-shadow: none;
         }

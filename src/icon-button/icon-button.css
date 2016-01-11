@@ -1,0 +1,71 @@
+/*
+ *  Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/**
+  The colored buttons here do slightly defer from the spec.
+  It isn't clear how they should be colored for different modes.
+  We give some minor opacity to the color by default, increase on
+  hover and increase more on active state.
+  This provides the same level of color modes the other buttons have.
+  Doing this improves consistency and accessiblity.
+*/
+
+/** postcss-bem-linter: define icon-button */
+
+.mdl-icon-button {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  color: var(--color-black);
+  border-radius: 50%;
+
+  @nest &:focus,
+  &:active {
+    background-color: color(var(--color-black) a(12%));
+  }
+
+  @nest &_light {
+    color: var(--color-white);
+
+    @nest &:focus,
+    &:active {
+      background-color: color(var(--color-white) a(30%));
+    }
+  }
+
+  @nest &_colored {
+    color: var(--color-primary);
+
+    @nest &:focus,
+    &:active {
+      background-color: color(var(--color-primary) a(26%));
+    }
+  }
+
+  @nest fieldset[disabled] &,
+  &[disabled] {
+    cursor: default;
+    color: graytext;
+  }
+}
+
+/* @end */

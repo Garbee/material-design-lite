@@ -1,0 +1,97 @@
+/*
+ *  Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/* postcss-bem-linter: define fab */
+
+.mdl-fab {
+  border-radius: 50%;
+  font-size: 56px;
+  height: 56px;
+  width: 56px;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 56px;
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+  background-color: var(--color-white);
+  display: inline-flex;
+  justify-content: center;
+
+  @nest &_mini {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+  }
+
+@nest &_colored {
+      background-color: color(var(--color-primary) a(80%));
+      color: var(--color-primary-contrast);
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-primary) a(90%));
+      }
+
+      @nest &:active {
+        background-color: var(--color-primary);
+      }
+
+      @nest &[disabled],
+      fieldset[disabled] & {
+        color: color(var(--color-black) a(26%));
+        background-color: color(var(--color-black) a(12%));
+        cursor: default;
+
+        @nest &:hover {
+          background-color: color(var(--color-black) a(12%));
+        }
+      }
+    }
+
+  @nest &_accent-colored {
+      background-color: color(var(--color-accent) a(80%));
+      color: var(--color-accent-contrast);
+
+      @nest &:hover,
+      &:focus {
+        background-color: color(var(--color-accent) a(90%));
+      }
+
+      @nest &:active {
+        background-color: var(--color-accent);
+      }
+
+      @nest &[disabled],
+      fieldset[disabled] & {
+        color: color(var(--color-black) a(26%));
+        background-color: color(var(--color-black) a(12%));
+        cursor: default;
+
+        @nest &:hover {
+          background-color: color(var(--color-black) a(12%));
+        }
+      }
+    }
+
+  @nest fieldset[disabled] &,
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+/* @end */
