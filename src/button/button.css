@@ -42,15 +42,17 @@
     font-family: var(--performance-font);
     font-weight: 500;
     text-transform: uppercase;
-    display: inline-block;
+    display: inline-flex;
     font-size: 14px;
     letter-spacing: 0;
     overflow: hidden;
     outline: none;
     cursor: pointer;
     text-decoration: none;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
     vertical-align: middle;
+    box-sizing: border-box;
 
     @nest &::-moz-focus-inner {
       border: 0;
@@ -204,10 +206,6 @@
           box-shadow: none;
         }
       }
-    }
-
-    @nest & .material-icons {
-      vertical-align: middle;
     }
 }
 
