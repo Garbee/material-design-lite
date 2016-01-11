@@ -13,7 +13,6 @@ export const SOURCES = [
   'src/menu/menu.babel.js',
   'src/snackbar/snackbar.babel.js',
   'src/textfield/textfield.babel.js',
-  'src/icon-toggle/icon-toggle.babel.js',
   'src/tooltip/tooltip.babel.js'
 ];
 
