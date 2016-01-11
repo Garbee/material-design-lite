@@ -72,6 +72,6 @@ gulp.task('serve', () => {
   });
   gulp.watch(['demos/*'], gulp.series('demos', reload));
   gulp.watch(['src/**/*.js'], gulp.series('scripts', reload));
-  gulp.watch(['src/**/*.{scss,css}'], gulp.series('styles', reload));
+  gulp.watch(['src/**/*.css'], gulp.series('styles', reload));
   gulp.watch(['src/**/*.{svg,png,jpg}'], gulp.series(tasks.images, reload));
 });
