@@ -65,6 +65,11 @@
   &[disabled] {
     cursor: default;
     color: graytext;
+
+    @nest &:focus,
+    &:active {
+      background-color: transparent;
+    }
   }
 }
 
