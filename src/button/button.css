@@ -15,6 +15,15 @@
  *
  */
 
+/**
+  The colored buttons here do slightly defer from the spec.
+  It isn't clear how they should be colored for different modes.
+  We give some minor opacity to the color by default, increase on
+  hover and increase more on active state.
+  This provides the same level of color modes the other buttons have.
+  Doing this improves consistency and accessiblity.
+*/
+
 /** postcss-bem-linter: define button */
 
 .mdl-button {
